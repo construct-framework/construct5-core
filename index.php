@@ -29,7 +29,7 @@ if(JFile::exists($mdetectFile)) {
 $results = $layoutOverride->getIncludeFile ();
 
 // Check if mobile device detection is turned on and, test if visitor is a mobile device, and if so, load mobile sub-template
-if (( $mdetect && $isMobile ) || ( $mdetect && $detectTablets && $isTablet )) {
+if (  $isMobile  ||  $isTablet ) {
 	if(JFile::exists($mTemplate)) {
 	 	include_once $mTemplate;
 	}
@@ -40,7 +40,6 @@ elseif ($results) {
 } else {	
 ?>
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
@@ -103,16 +102,14 @@ elseif ($results) {
 					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y'); ?></span>
 				</div>
 				
-				<?php if ($showDiagnostics) : ?>
 					<ul id="diagnostics">
 					    <li>column layout <?php echo $columnLayout; ?></li>
 						<li>component <?php echo $currentComponent; ?></li>					
 					    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
 					    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
 					    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-					    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
 					    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
-					    <?php if ($catId && ($inheritStyle || $inheritLayout)) {
+					    <?php if ($catId) {
 					    		if ($parentCategory) {
 					    		    echo '<li>parent category '.$parentCategory.'</li>';
 					    		}
@@ -128,7 +125,6 @@ elseif ($results) {
 							    }
 							  } ?>
 				    </ul>
-				<?php endif; ?>	
 
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
 				
@@ -148,14 +144,6 @@ elseif ($results) {
 					  <?php endif; ?>
 					</ul>
 				</nav>
-
-				<?php if ($enableSwitcher) : ?>
-					<ul id="style-switch">
-						<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
-					</ul>
-				<?php endif; ?>	
 
 			</div><!--end gutter -->
 		</header><!-- end header-->
