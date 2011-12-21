@@ -18,10 +18,6 @@ $app 					= JFactory::getApplication();
 $baseUrl 				= JURI::base();
 // Returns a reference to the global document object
 $doc 					= JFactory::getDocument();
-// Is version 1.6 and later
-$isOnward = (substr(JVERSION, 0, 3) >= '1.6');
-// Is version 1.5
-$isPresent = (substr(JVERSION, 0, 3) == '1.5');
 // Define relative path to the  current template directory
 $template 				= 'templates/'.$this->template;
 // Define absolute path to the template directory
@@ -33,87 +29,30 @@ $user 					= JFactory::getUser();
 // Get the current view
 $view     				= JRequest::getCmd('view');
 
-// Define shortcuts for template parameters
-$customStyleSheet 		= $this->params->get('customStyleSheet');
-$detectTablets			= $this->params->get('detectTablets');
-$enableSwitcher 		= $this->params->get('enableSwitcher');
-$fluidMedia				= $this->params->get('fluidMedia');
-$fullWidth				= $this->params->get('fullWidth');
-$googleWebFont 			= $this->params->get('googleWebFont');
-$googleWebFontSize		= $this->params->get('googleWebFontSize');
-$googleWebFontTargets	= $this->params->get('googleWebFontTargets');
-$googleWebFont2			= $this->params->get('googleWebFont2');
-$googleWebFontSize2		= $this->params->get('googleWebFontSize2');
-$googleWebFontTargets2	= $this->params->get('googleWebFontTargets2');
-$googleWebFont3			= $this->params->get('googleWebFont3');
-$googleWebFontSize3		= $this->params->get('googleWebFontSize3');
-$googleWebFontTargets3	= $this->params->get('googleWebFontTargets3');
-$gridSystem				= $this->params->get('gridSystem');
-$IECSS3					= $this->params->get('IECSS3');
-$IECSS3Targets			= $this->params->get('IECSS3Targets');
-$IE6TransFix			= $this->params->get('IE6TransFix');
-$IE6TransFixTargets		= $this->params->get('IE6TransFixTargets');
-$inheritLayout			= $this->params->get('inheritLayout');
-$inheritStyle			= $this->params->get('inheritStyle');
-$loadMoo 				= $this->params->get('loadMoo');
-$loadModal				= $this->params->get('loadModal');
-$loadjQuery 			= $this->params->get('loadjQuery');
-$mContentDataTheme		= $this->params->get('mContentDataTheme');
-$mdetect 				= $this->params->get('mdetect');
-$mFooterDataTheme		= $this->params->get('mFooterDataTheme');
-$mHeaderDataTheme		= $this->params->get('mHeaderDataTheme');
-$mNavPosition			= $this->params->get('mNavPosition');
-$mNavDataTheme			= $this->params->get('mNavDataTheme');
-$mPageDataTheme			= $this->params->get('mPageDataTheme');
-$setGeneratorTag		= $this->params->get('setGeneratorTag');
-$showDiagnostics 		= $this->params->get('showDiagnostics');
-$siteWidth				= $this->params->get('siteWidth');
-$siteWidthType			= $this->params->get('siteWidthType');
-$siteWidthUnit			= $this->params->get('siteWidthUnit');
-$stickyFooterHeight		= $this->params->get('stickyFooterHeight');
-$useStickyFooter 		= $this->params->get('useStickyFooter');
-
 // Define absolute paths to files
-$mdetectFile 			= JPATH_THEMES.'/'.$this->template.'/elements/mdetect.php';
+$mdetectFile 			= JPATH_THEMES.'/'.$this->template.'/mdetect.php';
 $mTemplate				= JPATH_THEMES.'/'.$this->template.'/mobile.php';
 $alternatemTemplate		= JPATH_THEMES.'/'.$this->template.'/layouts/mobile.php';
 
 // Change generator tag
-$this->setGenerator($setGeneratorTag);
-
-// Enable Mootols
-if ( $isOnward && $loadMoo ) {
-	JHTML::_('behavior.framework', true);
-}
+$this->setGenerator('Construct Framework | http://construct-framework.com');
 
 // Behavior.mootools is depreciated and may be removed after 1.6
-if ( $isPresent && $loadMoo ) {	
-	JHTML::_('behavior.mootools');
-}
+JHTML::_('behavior.mootools');
 
 // Enable modal pop-ups
-if ( $loadMoo && $loadModal ) {	
-	JHTML::_('behavior.modal');
-}
+JHTML::_('behavior.modal');
 
 // Remove MooTools if set to no.
-if ( !$loadMoo ) {
-	$head=$this->getHeadData();
-	reset($head['scripts']);
-	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools.js']);
-	unset($head['scripts'][$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
-	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-core.js']);
-	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);		
-	$this->setHeadData($head);
-}
-
-// Change Google Web Font name for CSS
-$googleWebFontFamily 	= str_replace(array('+',':bold',':italic')," ",$googleWebFont);
-$googleWebFontFamily2 	= str_replace(array('+',':bold',':italic')," ",$googleWebFont2);
-$googleWebFontFamily3 	= str_replace(array('+',':bold',':italic')," ",$googleWebFont3);
-
-// Get the name of the extended template override group
-$overrideTheme 			= str_replace(".css","",$customStyleSheet);
+/*
+$head=$this->getHeadData();
+reset($head['scripts']);
+unset($head['scripts'][$this->baseurl . '/media/system/js/mootools.js']);
+unset($head['scripts'][$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
+unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-core.js']);
+unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);		
+$this->setHeadData($head);
+*/
 
 #----------------------------- Moldule Counts -----------------------------#
 // from http://groups.google.com/group/joomla-dev-general/browse_thread/thread/b54f3f131dd173d
@@ -274,37 +213,6 @@ function getCategory($id) {
 	
 $catId = getCategory(JRequest::getInt('id'));
 
-#------------------------- Ancestor Category IDs --------------------------#
-
-if ($catId && ($inheritStyle || $inheritLayout)) {
-	
-	function getParentCategory($id) {
-		$database = JFactory::getDBO();	
-		$sql = "SELECT parent_id 
-		FROM #__categories 
-		WHERE id = $id";
-		$database->setQuery( $sql );
-		return $database->loadResult();
-	}
-	
-	$parentCategory = getParentCategory($catId);
-
-	function getAncestorCategories($id) {
-		$database = JFactory::getDBO();	
-		$sql = "SELECT b.id, b.title
-		FROM #__categories a,
-		#__categories b
-		WHERE a.id = $id
-		AND a.lft > b.lft
-		AND a.rgt < b.rgt
-		AND a.id <> b.id
-		AND b.lft > 0";
-		$database->setQuery( $sql );
-		return $database->loadObjectList();
-	}
-	
-}
-
 #--------------------------------- Alias ----------------------------------#
 
 if ($itemId) {
@@ -321,22 +229,10 @@ $styleOverride 								= new ConstructTemplateHelper ();
 
 $styleOverride->includeFile 				= array ();
 
-$styleOverride->includeFile[] 				= $template.'/css/article/'.$overrideTheme.'-article-'.$articleId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/article/article-'.$articleId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/article/article.css';
-$styleOverride->includeFile[] 				= $template.'/css/item/'.$overrideTheme.'-item-'.$itemId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/item/item-'.$itemId.'.css';
-$styleOverride->includeFile[] 				= $template.'/css/category/'.$overrideTheme.'-category-'.$catId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/category/category-'.$catId.'.css';
-if ($isOnward && $catId && $inheritStyle) {
-	$styleOverride->includeFile[] 			= $template.'/css/category/category-'.$parentCategory.'.css';	
-
-	$results 								= getAncestorCategories($catId);
-	if (count($results) > 0) {
-		foreach ($results as $result) {			
-			$styleOverride->includeFile[] 	= $template.'/css/category/category-'.$result->id.'.css';
-		}
-	}				
 }
 if ($view == 'category') {						
 	$styleOverride->includeFile[] 			= $template.'/css/category/category.css';
@@ -344,11 +240,9 @@ if ($view == 'category') {
 if ($view == 'categories') {
 	$styleOverride->includeFile[]			= $template.'/css/category/categories.css';
 }
-$styleOverride->includeFile[] 				= $template.'/css/section/'.$overrideTheme.'-section-'.$sectionId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/section/section-'.$sectionId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/section/section.css';
 $styleOverride->includeFile[] 				= $template.'/css/component/'.$currentComponent.'.css';
-$styleOverride->includeFile[] 				= $template.'/css/component/'.$overrideTheme.'-'.$currentComponent.'.css';
 
 #---------------Mobile Extended Template Style Overrides---------------------#
 
@@ -368,35 +262,19 @@ $layoutOverride 							= new ConstructTemplateHelper ();
 
 $layoutOverride->includeFile 				= array ();
 
-$layoutOverride->includeFile[] 				= $template.'/layouts/article/'.$overrideTheme.'-article-'.$articleId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/article/article-'.$articleId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/article/article.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/item/'.$overrideTheme.'-item-'.$itemId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/item/item-'.$itemId.'.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/category/'.$overrideTheme.'-category-'.$catId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/category/category-'.$catId.'.php';
-if ($isOnward && $catId && $inheritLayout) {
-	$layoutOverride->includeFile[] 			= $template.'/layouts/category/category-'.$parentCategory.'.php';	
-
-	$results 								= getAncestorCategories($catId);
-	if (count($results) > 0) {
-		foreach ($results as $result) {			
-			$layoutOverride->includeFile[] 	= $template.'/layouts/category/category-'.$result->id.'.php';
-		}
-	}				
-}
 if ($view == 'category') {						
 	$layoutOverride->includeFile[] 			= $template.'/layouts/category/category.php';
 }
 if ($view == 'categories') {
 	$layoutOverride->includeFile[]			= $template.'/layouts/category/categories.php';
 }
-$layoutOverride->includeFile[] 				= $template.'/layouts/section/'.$overrideTheme.'-section-'.$sectionId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/section/section-'.$sectionId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/section/section.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$overrideTheme.'-'.$currentComponent.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$currentComponent.'.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/'.$overrideTheme.'-index.php';
 $layoutOverride->includeFile[] 				= $template.'/layouts/index.php';
 
 #---------------Mobile Extended Template Layout Overrides--------------------#
