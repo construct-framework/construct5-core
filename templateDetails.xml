@@ -58,12 +58,7 @@
         <filename>template_thumbnail.png</filename>
         <filename>templateDetails.xml</filename>
     </files>
-	
-	<languages>
-		<language tag="en-GB">en-GB.tpl_construct5-pro.ini</language>
-		<language tag="en-GB">en-GB.tpl_construct5-pro.sys.ini</language>
-	</languages>
-	
+
 	<positions>
 		<position>analytics</position>
 		<position>breadcrumbs</position>
