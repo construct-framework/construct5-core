@@ -415,8 +415,6 @@ $mobileLayoutOverride->includeFile[]		= $template.'/layouts/mobile.php';
 
 #---------------------------- Head Elements --------------------------------#
 
-// Custom tags
-
 // Always force latest IE rendering engine (even in intranet) & Chrome Frame
 $doc->addCustomTag('<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">');
 // Mobile viewport optimized: j.mp/bplateviewport
@@ -429,14 +427,9 @@ $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
 // Style sheets
-$doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
-if ($gridSystem !='-1') {
-	$doc->addStyleSheet($template.'/css/grids/'.$gridSystem,'text/css','screen');
-}
-if ($customStyleSheet !='-1') {
-	$doc->addStyleSheet($template.'/css/'.$customStyleSheet,'text/css','screen');
-}
+
 if ($this->direction == 'rtl') {
 	$doc->addStyleSheet($template.'/css/rtl.css','text/css','screen');
 }
@@ -445,60 +438,15 @@ $cssFile = $styleOverride->getIncludeFile ();
 if ($cssFile) {
 	$doc->addStyleSheet($cssFile,'text/css','screen');
 }
-
-// Style sheet switcher
-if ($enableSwitcher) {
-	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/diagnostic.css" type="text/css" media="screen" title="diagnostic" />');
-	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/wireframe.css" type="text/css" media="screen" title="wireframe" />');
-	$doc->addScript($template.'/js/styleswitch.js');
-} 	
-
-// Typography
-if ($googleWebFont) {
-	$doc->addStyleSheet('http://fonts.googleapis.com/css?family='.$googleWebFont.'');
-	$doc->addStyleDeclaration('  '.$googleWebFontTargets.' {font-family:'.$googleWebFontFamily.', serif;font-size:'.$googleWebFontSize.';}');
-}
-if ($googleWebFont2) {
-	$doc->addStyleSheet('http://fonts.googleapis.com/css?family='.$googleWebFont2.'');
-	$doc->addStyleDeclaration('  '.$googleWebFontTargets2.' {font-family:'.$googleWebFontFamily2.', serif;font-size:'.$googleWebFontSize2.';}');
-}
-if ($googleWebFont3) {
-	$doc->addStyleSheet('http://fonts.googleapis.com/css?family='.$googleWebFont3.'');
-	$doc->addStyleDeclaration('  '.$googleWebFontTargets3.' {font-family:'.$googleWebFontFamily3.', serif;font-size:'.$googleWebFontSize3.';}');
-}
-
-// JavaScript
-
 //Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
 $doc->addCustomTag("\n".'  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
 
 $doc->addCustomTag("\n".'  <script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
-if ($loadjQuery) {
-	$doc->addCustomTag("\n".'  <script type="text/javascript" src="'.$loadjQuery.'"></script>');
-	$doc->addCustomTag("\n".'  <script type="text/javascript">jQuery.noConflict();</script>');
-}
-
-// Layout Declarations
-if ($siteWidth) {
-	$doc->addStyleDeclaration("\n".'  #body-container, #header-above {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.';}');
-}
-if (($siteWidthType == 'max-width') && $fluidMedia ) {
-	$doc->addStyleDeclaration("\n".'  img, object {max-width:100%;}');
-}
-if (!$fullWidth) {
-	$doc->addStyleDeclaration("\n".'  #header, #footer {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.'; margin:0 auto;}');
-}
-if ($useStickyFooter) {
-	$doc->addStyleDeclaration("\n".'  .sticky-footer #body-container {padding-bottom:'.$stickyFooterHeight.'px;}');
-	$doc->addStyleDeclaration("\n".'  .sticky-footer #footer {margin-top:-'.$stickyFooterHeight.'px;height:'.$stickyFooterHeight.'px;}');
-}
 
 // Internet Explorer Fixes
 $doc->addCustomTag("\n".'  <!--[if lt IE 9]>');
 $doc->addCustomTag("\n".'  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>');
-if ($IECSS3) {
-  $doc->addCustomTag("\n".'  <style type="text/css">'.$IECSS3Targets.' {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
-}
+$doc->addCustomTag("\n".'  <style type="text/css">.pie {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
 $doc->addCustomTag('<![endif]-->');
 
 // Internet Explorer 6 Fixes
@@ -507,17 +455,14 @@ $doc->addCustomTag("\n".'  <link rel="stylesheet" href="'.$template.'/css/ie6.cs
 $doc->addCustomTag("\n".'  <style type="text/css">');
 $doc->addCustomTag("\n".'  body {text-align:center;}');
 $doc->addCustomTag("\n".'  #body-container {text-align:left;}');
-if ($useStickyFooter) {
-	$doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height:100%;}');
-}
-if(!$fullWidth){
-	$doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
-} else {
-	$doc->addCustomTag("\n".'  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
-}
+$doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height:100%;}');
+
+// full width header/footer
+$doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
+// not full width header/footer
+//$doc->addCustomTag("\n".'  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
+
 $doc->addCustomTag("\n".'  </style>');
-if($IE6TransFix) {
-	$doc->addCustomTag("\n".'  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
-	$doc->addCustomTag("\n".'  <script type="text/javascript">DD_belatedPNG.fix(\''.$IE6TransFixTargets.'\');</script>');
-}
+$doc->addCustomTag("\n".'  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
+$doc->addCustomTag("\n".'  <script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
 $doc->addCustomTag('<![endif]-->');

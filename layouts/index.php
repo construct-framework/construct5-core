@@ -6,41 +6,7 @@
 * @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
-
-// Load Joomla filesystem package
-jimport('joomla.filesystem.file');
-
-// Load template logic
-$logicFile				= JPATH_THEMES.'/'.$this->template.'/elements/logic.php';
-if(JFile::exists($logicFile)) {
-	include $logicFile;
-}
-
-// Mobile device detection
-if(JFile::exists($mdetectFile)) {
-	include_once $mdetectFile;
-	// Instantiate the mobile object class
-	$uagent_obj 		= new uagent_info();
-	$isMobile 			= $uagent_obj->DetectMobileLong();
-	$isTablet			= $uagent_obj->DetectTierTablet();
-}
-
-// Layout override
-$results = $layoutOverride->getIncludeFile ();
-
-// Check if mobile device detection is turned on and, test if visitor is a mobile device, and if so, load mobile sub-template
-if (( $mdetect && $isMobile ) || ( $mdetect && $detectTablets && $isTablet )) {
-	if(JFile::exists($mTemplate)) {
-	 	include_once $mTemplate;
-	}
-} // Check for layout override
-elseif ($results) {
-	$alternateIndexFile = $results;
-	include_once $alternateIndexFile;	
-} else {	
-?>
-<!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+?><!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
@@ -437,7 +403,7 @@ elseif ($results) {
 
 			<a id="to-page-top" href="<?php $url->setFragment('page-top'); echo $url->toString();?>" class="to-additional">Back to Top</a>
 
-			<?php if ($this->countModules('syndicate')) : ?>			
+			<?php if ($this->countModules('syndicate')) : ?>
 			<div id="syndicate">
 				<jdoc:include type="modules" name="syndicate" />
 			</div>
@@ -460,4 +426,3 @@ elseif ($results) {
 	
 	</body>
 </html>
-<?php }

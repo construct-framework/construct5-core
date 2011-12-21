@@ -42,34 +42,7 @@ function compress($buffer) {
 }
 
 require('screen.css');
-
-require('../elements/logic.php');
-
-require($customStyleSheet);
-
-
-
-
-define( '_JEXEC', 1 );
-define('JPATH_BASE', dirname(__FILE__));
-define( 'DS', DIRECTORY_SEPARATOR );
-
-if (file_exists('../../../includes/defines.php')) {
-	include_once ('../../../includes/defines.php');
-	echo "defines.php";
-}
-
-if (file_exists('../../../libraries/import.php')) {
-	include_once ('../../../libraries/import.php');
-	echo "import.php";
-}
-
-if (file_exists('../../../libraries/joomla/factory.php')) {
-	include_once ('../../../libraries/joomla/factory.php');
-	echo "factory.php";
-}
-
-$params 			= JFactory::getApplication()->getTemplate(true)->params;
-
+require('grids/construct.css');
+require('custom.css');
 
 ?>

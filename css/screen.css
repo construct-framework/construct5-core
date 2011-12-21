@@ -438,6 +438,16 @@ table {
 }
 
 /* =============================================================================
+   Fluid Media
+   ========================================================================== */
+
+
+img,
+object {
+	max-width:100%;
+}
+
+/* =============================================================================
    Base Typography
    ========================================================================== */
 
@@ -1531,14 +1541,17 @@ html,
 .sticky-footer {
     height: 100%;
 }
-
 .sticky-footer #footer-push {
     min-height: 100%;
 }
-
+.sticky-footer #body-container {
+	padding-bottom:150px;
+}
 .sticky-footer #footer {
     position: relative;
     clear: both;
+	margin-top:-150px;
+	height:150px;}
 }
 
 /*

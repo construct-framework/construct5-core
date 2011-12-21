@@ -152,7 +152,7 @@
 	
 	<config>
 		<fields name="params">
-			<fieldset name="general" addfieldpath="/templates/construct5-pro/elements/onward" >
+			<fieldset name="general" addfieldpath="/templates/construct5-core/elements/onward" />
 				<field name="inheritLayout" type="radio" default="0" label="TPL_CONSTRUCT5_PRO_INHERIT_CAT_LAYOUT_LABEL" description="TPL_CONSTRUCT5_PRO_INHERIT_CAT_LAYOUT_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
@@ -167,7 +167,7 @@
 		</fields>
 	</config>	
 	
-	<params addpath="/templates/construct5-pro/elements/present">
+	<params addpath="/templates/construct5-core/elements/present">
 		<param type="panel" title="General" />
 		<param type="panel" title="Version Check" />
 		<param label="Version Check" type="upgradecheck"/>
