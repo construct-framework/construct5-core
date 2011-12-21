@@ -30,9 +30,9 @@ $user 					= JFactory::getUser();
 $view     				= JRequest::getCmd('view');
 
 // Define absolute paths to files
-$mdetectFile 			= JPATH_THEMES.'/'.$this->template.'/mdetect.php';
-$mTemplate				= JPATH_THEMES.'/'.$this->template.'/mobile.php';
-$alternatemTemplate		= JPATH_THEMES.'/'.$this->template.'/layouts/mobile.php';
+$mdetectFile 			= $templateDir.'/elements/mdetect.php';
+$mTemplate				= $templateDir.'/mobile.php';
+$alternatemTemplate		= $templateDir.'/layouts/mobile.php';
 
 // Change generator tag
 $this->setGenerator('Construct Framework | http://construct-framework.com');
@@ -233,7 +233,6 @@ $styleOverride->includeFile[] 				= $template.'/css/article/article-'.$articleId
 $styleOverride->includeFile[] 				= $template.'/css/article/article.css';
 $styleOverride->includeFile[] 				= $template.'/css/item/item-'.$itemId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/category/category-'.$catId.'.css';
-}
 if ($view == 'category') {						
 	$styleOverride->includeFile[] 			= $template.'/css/category/category.css';
 }
@@ -336,7 +335,7 @@ $doc->addCustomTag("\n".'  #body-container {text-align:left;}');
 $doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height:100%;}');
 
 // full width header/footer
-$doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
+$doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >80 ? "80.5em" : "auto" );margin:0 auto;}');
 // not full width header/footer
 //$doc->addCustomTag("\n".'  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
 

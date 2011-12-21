@@ -69,32 +69,15 @@
 					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y'); ?></span>
 				</div>
 				
-				<?php if ($showDiagnostics) : ?>
-					<ul id="diagnostics">
-					    <li>column layout <?php echo $columnLayout; ?></li>
-						<li>component <?php echo $currentComponent; ?></li>					
-					    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
-					    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
-					    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-					    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
-					    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
-					    <?php if ($catId && ($inheritStyle || $inheritLayout)) {
-					    		if ($parentCategory) {
-					    		    echo '<li>parent category '.$parentCategory.'</li>';
-					    		}
-					    		$results = getAncestorCategories($catId);
-							    if ($results) {
-							        echo '<li>ancestor categories';
-								        if (count($results) > 0) {
-									        foreach ($results as $item) {
-										        echo ' '.$item->id.' ';
-									        }			
-								        }								
-							        echo'</li>';
-							    }
-							  } ?>
-				    </ul>
-				<?php endif; ?>	
+				<ul id="diagnostics">
+				    <li>column layout <?php echo $columnLayout; ?></li>
+					<li>component <?php echo $currentComponent; ?></li>					
+				    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
+				    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
+				    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
+				    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
+				    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
+			    </ul>
 
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
 				
@@ -114,14 +97,6 @@
 					  <?php endif; ?>
 					</ul>
 				</nav>
-
-				<?php if ($enableSwitcher) : ?>
-					<ul id="style-switch">
-						<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
-					</ul>
-				<?php endif; ?>	
 
 			</div><!--end gutter -->
 		</header><!-- end header-->
