@@ -298,7 +298,7 @@ $doc->addCustomTag('<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1
 $doc->addCustomTag(' <meta name="viewport" content="width=device-width, initial-scale=1.0">');
 
 $doc->addCustomTag('<meta name="copyright" content="'.$app->getCfg('sitename').'" />');
-
+$doc->addCustomTag('<link rel="author" type="text/plain" href="'.$baseUrl.'humans.txt" />');
 // Site icons
 $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
@@ -316,30 +316,30 @@ if ($cssFile) {
 	$doc->addStyleSheet($cssFile,'text/css','screen');
 }
 //Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
-$doc->addCustomTag("\n".'  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
+$doc->addCustomTag('  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
 
-$doc->addCustomTag("\n".'  <script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
+$doc->addCustomTag('  <script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
 
 // Internet Explorer Fixes
-$doc->addCustomTag("\n".'  <!--[if lt IE 9]>');
-$doc->addCustomTag("\n".'  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>');
-$doc->addCustomTag("\n".'  <style type="text/css">.pie {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
+$doc->addCustomTag('  <!--[if lt IE 9]>');
+$doc->addCustomTag('  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>');
+$doc->addCustomTag('  <style type="text/css">.pie {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
 $doc->addCustomTag('<![endif]-->');
 
 // Internet Explorer 6 Fixes
-$doc->addCustomTag("\n".'  <!--[if lt IE 7]>');
-$doc->addCustomTag("\n".'  <link rel="stylesheet" href="'.$template.'/css/ie6.css" type="text/css" media="screen" />');
-$doc->addCustomTag("\n".'  <style type="text/css">');
-$doc->addCustomTag("\n".'  body {text-align:center;}');
-$doc->addCustomTag("\n".'  #body-container {text-align:left;}');
-$doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height:100%;}');
+$doc->addCustomTag('  <!--[if lt IE 7]>');
+$doc->addCustomTag('  <link rel="stylesheet" href="'.$template.'/css/ie6.css" type="text/css" media="screen" />');
+$doc->addCustomTag('  <style type="text/css">');
+$doc->addCustomTag('  body {text-align:center;}');
+$doc->addCustomTag('  #body-container {text-align:left;}');
+$doc->addCustomTag('  body.sticky-footer #footer-push {display:table;height:100%;}');
 
 // full width header/footer
-$doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >80 ? "80.5em" : "auto" );margin:0 auto;}');
+$doc->addCustomTag('  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >80 ? "80.5em" : "auto" );margin:0 auto;}');
 // not full width header/footer
-//$doc->addCustomTag("\n".'  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
+//$doc->addCustomTag('  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
 
-$doc->addCustomTag("\n".'  </style>');
-$doc->addCustomTag("\n".'  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
-$doc->addCustomTag("\n".'  <script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
+$doc->addCustomTag('  </style>');
+$doc->addCustomTag('  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
+$doc->addCustomTag('  <script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
 $doc->addCustomTag('<![endif]-->');

@@ -15,7 +15,7 @@ header("Content-type: text/css;charset: UTF-8");
 /* cache control to process */
 header("Cache-Control: must-revalidate");
 /* duration of cached content (1 hour) */
-$offset = 60 * 60 * 24 * 365;
+$offset = 60 * 60;
 /* expiration header format */
 $ExpStr = "Expires: " . gmdate("D, d M Y H:i:s",time() + $offset) . " GMT";
 /* send cache expiration header to browser */
