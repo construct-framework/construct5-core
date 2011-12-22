@@ -7,11 +7,7 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// Joomla 1.5 only
-
-?>
-
-<section class="remind<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
+?><section class="remind<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
 
 	<?php if($this->params->get('show_page_title',1)) : ?>
 		<h2>

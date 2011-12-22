@@ -7,11 +7,7 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// Joomla 1.5 only
-
-?>
-
-<dl>
+?><dl>
 	<dt><?php echo JText::_( 'Number of Voters' ); ?></dt>
 	<dd><?php echo $this->votes[0]->voters; ?></dd>
 	<dt><?php echo JText::_( 'First Vote' ); ?></dt>

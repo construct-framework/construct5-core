@@ -7,14 +7,10 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// Joomla 1.5 only
-
-?>
-
-<?php if($this->params->get('show_page_title',1)) : ?>
-	<h1>
+if($this->params->get('show_page_title',1)) :
+?><h1>
 		<?php echo $this->params->get('page_title') ?>
 	</h1>
 <?php endif; ?>
 
-<?php echo $this->loadTemplate( $this->type ); ?>
+<?php echo $this->loadTemplate( $this->type );

@@ -6,10 +6,9 @@
 * @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
-?>
 
-<?php if ($this->item->params->get('show_title')) : ?>
-<h2>
+if ($this->item->params->get('show_title')) :
+?><h2>
 	<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
 		<a href="<?php echo $this->escape($this->item->readmore_link); ?>">
 			<?php echo $this->escape($this->item->title); ?></a>

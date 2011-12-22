@@ -6,10 +6,8 @@
 * @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
-?>
-
-<?php if ($params->get('item_title')) : ?>
-	<h5>
+if ($params->get('item_title')) :
+?><h5>
 		<?php if ($params->get('link_titles') && (isset($item->linkOn))) : ?>
 		<a href="<?php echo JRoute::_($item->linkOn); ?>" class="newsflash-title<?php echo $params->get('moduleclass_sfx'); ?>">
 			<?php echo $item->title; ?></a>
@@ -34,4 +32,4 @@
 	<a href="<?php echo $item->linkOn; ?>">
 		<?php echo $readmoretxt.' '.$item->title; ?>
 	</a>
-<?php endif; ?>
+<?php endif;

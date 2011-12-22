@@ -7,11 +7,7 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// Joomla 1.5 only
-
-?>
-
-<section class="poll<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+?><section class="poll<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
 	<?php JHTML::_('stylesheet', 'poll_bars.css', 'components/com_poll/assets/'); ?>
 	

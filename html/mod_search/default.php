@@ -7,13 +7,7 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-if (substr(JVERSION, 0, 3) >= '1.6') {
-	include JPATH_ROOT.'/modules/mod_search/tmpl/default.php';
-}
-else {
-?>
-
-<div class="search">
+?><div class="search">
 	<form action="index.php?option=com_search&view=search"  method="post">
 		<fieldset>
 			<label for="mod_search_searchword">
@@ -58,4 +52,3 @@ else {
 		<input type="hidden" name="task"   value="search" />
 	</form>
 </div>
-<?php }

@@ -6,9 +6,8 @@
 * @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
-?>
 
-<div class="newsflash<?php echo $params->get('moduleclass_sfx') ?>">
+?><div class="newsflash<?php echo $params->get('moduleclass_sfx') ?>">
 
 	<?php
 	srand((double) microtime() * 1000000);

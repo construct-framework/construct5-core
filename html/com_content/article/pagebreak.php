@@ -1,5 +1,4 @@
-<?php // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
+<?php defined( '_JEXEC' ) or die; ?>
 		<script type="text/javascript">
 			function insertPagebreak(editor)
 			{
