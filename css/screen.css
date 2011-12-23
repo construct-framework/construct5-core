@@ -97,10 +97,6 @@ a {
     color: #00e;
 }
 
-a:visited {
-    color: #551a8b;
-}
-
 /*
  * Addresses outline displayed oddly in Chrome
  */
@@ -454,19 +450,6 @@ body {
     line-height: 1.6em;
     font-family: Helvetica,Arial,FreeSans,sans-serif;
 }
-
-a,
-a:link,
-a:visited,
-a:focus,
-a:active {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 b {
     font-weight: bold;
 }
@@ -1406,7 +1389,7 @@ nav ul li {
 nav ul.menu li a,
 nav ul.menu li span.separator {
     line-height: 1.8em;
-    padding: 6px 15px 5px;
+    padding: 8px 12px 2px;
 }
 
 nav ul.menu ul ul{

@@ -1,5 +1,62 @@
 body{
-    font-size:76%;
+    font-size: 76%;
+    color:#2d2d2d;
+}
+header .wrap{
+    max-width: 95em;
+    margin:0 auto;
+}
+header nav{
+    float: right;
+    margin-top: 2em;
+}
+header nav li{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+header nav li a{
+    display: inline-block;
+    min-width: 4.5em;
+    border: 1px solid gainsboro;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #555;
+    font-size: 11px;
+    font-weight: bold;
+    height: 27px;
+    padding: 0 8px;
+    line-height: 27px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -o-transition: all 0.218s;
+    transition: all 0.218s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    cursor: pointer;
+    border-image: initial;
+    text-shadow: -1px -1px #fff;
+}
+
+header nav li a:hover {
+    border: 1px solid #C6C6C6;
+    color: #222;
+    -webkit-transition: all 0.0s;
+    -moz-transition: all 0.0s;
+    -o-transition: all 0.0s;
+    transition: all 0.0s;
+    border-image: initial;
+    text-decoration: none;
+}
+header nav li#current a {
+    border-image: initial;
+}
+#body-container{
     max-width:80.5em;
     margin:0 auto;
+}
+#to-page-top {
+    position: absolute;
+    right:20px;
 }

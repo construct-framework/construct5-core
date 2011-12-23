@@ -6,6 +6,7 @@
 * @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
+$doc->addCustomTag('<link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700" rel="stylesheet" type="text/css">');
 ?><!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
@@ -15,89 +16,21 @@
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
+<body class="sticky-footer <?php echo $columnLayout; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
 
 	<div id="footer-push">
-			<a id="page-top" name="page-top"></a>
-			<?php if ($headerAboveCount) : ?>
-				<div id="header-above" class="clearfix">
-					<?php if ($this->countModules('header-above-1')) : ?>
-						<div id="header-above-1" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-1" style="div" />
-						</div><!-- end header-above-1 -->
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-2')) : ?>
-						<div id="header-above-2" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-2" style="div" />
-						</div><!-- end header-above-2 -->
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-3')) : ?>
-						<div id="header-above-3" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-3" style="div" />
-						</div><!-- end header-above-3 -->								
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-4')) : ?>
-						<div id="header-above-4" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-4" style="div" />
-						</div><!-- end header-above-4 -->								
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-5')) : ?>
-						<div id="header-above-5" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-5" style="div" />
-						</div><!-- end header-above-5 -->								
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-6')) : ?>
-						<div id="header-above-6" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-6" style="div" />
-						</div><!-- end header-above-6 -->								
-					<?php endif; ?>
-				</div><!-- end header-above -->
-			<?php endif; ?>
+		<a id="page-top" name="page-top"></a>
 
 		<header id="header" class="clear clearfix">
 			<div class="gutter clearfix">
-
-				<div class="date-container">
-					<span class="date-weekday"><?php	$now = &JFactory::getDate(); echo $now->toFormat('%A').','; ?></span>
-					<span class="date-month"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%B'); ?></span>
-					<span class="date-day"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%d').','; ?></span>
-					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y'); ?></span>
+				<div class="wrap">
+                <nav class="clear clearfix" role="navigation">
+                    <jdoc:include type="modules" name="nav" style="raw" />
+                </nav>
+                <h1 id="logo">
+                    <a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a>
+                </h1>
 				</div>
-				
-				<ul id="diagnostics">
-				    <li>column layout <?php echo $columnLayout; ?></li>
-					<li>component <?php echo $currentComponent; ?></li>					
-				    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
-				    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
-				    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-				    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
-				    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
-			    </ul>
-
-				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
-				
-				<?php if ($this->countModules('header')) : ?>
-					<jdoc:include type="modules" name="header" style="header" />	
-				<?php endif; ?>
-				
-				<nav>
-					<ul id="access">
-					  <li>Jump to:</li>
-					  <li><a href="<?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>					
-					  <?php if ($this->countModules('nav')) : ?>
-						<li><a href="<?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
-					  <?php endif; ?>					
-					  <?php if ($contentBelowCount) : ?>
-						<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
-					  <?php endif; ?>
-					</ul>
-				</nav>
-
 			</div><!--end gutter -->
 		</header><!-- end header-->
 		   
@@ -147,12 +80,8 @@
 				<jdoc:include type="module" name="breadcrumbs" />				
 			<?php endif; ?>		
 			
-			<?php if ($this->countModules('nav')) : ?>
-				<nav id="nav" class="clear clearfix">
-					<jdoc:include type="modules" name="nav" style="raw" />
-				</nav><!-- end nav-->
-			<?php endif; ?>
-	  
+
+
 			<div id="content-container" class="clear clearfix">    
 
 				<?php if ($navBelowCount) : ?>
@@ -199,6 +128,11 @@
 					<a id="content" name="content"></a>     
 					<div id="content-main">
 						<div class="gutter">
+							<ul id="style-switch">
+								<li><a href="#" onclick="setActiveStyleSheet('light'); return false;" title="light">light</a></li>
+								<li><a href="#" onclick="setActiveStyleSheet('dark'); return false;" title="dark">dark</a></li>
+								<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
+							</ul>
 						
 							<?php if ($contentAboveCount) : ?>
 								<div id="content-above" class="clearfix">						
@@ -373,7 +307,7 @@
 		</section><!-- end body-container -->
 	</div><!-- end footer-push -->
     
-	<footer id="footer" class="clear clearfix">
+	<footer id="footer" class="clearfix">
 		<div class="gutter clearfix">
 
 			<a id="to-page-top" href="<?php $url->setFragment('page-top'); echo $url->toString();?>" class="to-additional">Back to Top</a>
