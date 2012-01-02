@@ -304,10 +304,11 @@ $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
 // Style sheets
-//$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
+/*$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');*/
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/dark.css','text/css','screen');
 
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
 
@@ -323,6 +324,7 @@ if ($cssFile) {
 // Style sheet switcher
 $doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/light.css" type="text/css" media="screen" title="light" />');
 $doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/dark.css" type="text/css" media="screen" title="dark" />');
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/minimal.css" type="text/css" media="screen" title="minimal" />');
 $doc->addScript($template.'/js/styleswitch.js');
 
 

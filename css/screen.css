@@ -712,6 +712,7 @@ isindex,
 .breadcrumbs img {
     display: inline-block;
     margin: 0;
+	float: left;
 }
 
 table.category {
@@ -1526,13 +1527,13 @@ html,
     min-height: 100%;
 }
 .sticky-footer #body-container {
-	padding-bottom:150px;
+	padding-bottom:125px;
 }
 .sticky-footer #footer {
     position: relative;
     clear: both;
-	margin-top:-150px;
-	height:150px;}
+	margin-top:-125px;
+	height:125px;}
 }
 
 /*

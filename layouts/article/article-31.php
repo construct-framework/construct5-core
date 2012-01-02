@@ -13,6 +13,16 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo substr($this->language, 0, 2); ?>"> <!--<![endif]-->
 <head>
 <jdoc:include type="head" />
+<link rel="stylesheet" href="<?php echo 'templates/'.$this->template; ?>/css/formcheck.css" type="text/css" media="screen" />
+<script type="text/javascript" src="<?php echo 'templates/'.$this->template; ?>/js/formcheck.js"></script>
+<script type="text/javascript" src="<?php echo 'templates/'.$this->template; ?>/js/en.js"></script>
+<script type="text/javascript">
+window.addEvent('domready', function(){
+	new FormCheck('rfq-form', {
+		display : {	errorsLocation : 1,	indicateErrors : 2,	showErrors : 1,	addClassErrorToField : 1}
+	});
+});
+</script>
 </head>
 
 <body class="sticky-footer <?php echo $columnLayout; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
