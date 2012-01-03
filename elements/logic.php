@@ -307,7 +307,6 @@ $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon
 /*$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');*/
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
-$doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/dark.css','text/css','screen');
 
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
