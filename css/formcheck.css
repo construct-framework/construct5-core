@@ -1,0 +1,90 @@
+.fc-tbx{
+	z-Index:1000000002;
+	max-width: 640px;
+}
+
+.fc-tbx p{
+	width : auto;
+	display: block;
+	font-size: 10px;
+	font-family: tahoma, verdana, sans-serif;
+	margin : 0;
+	padding : 0;
+	border : 0;
+	color : #FFF;
+}
+
+.fc-tbx a.close{
+	background: url('img/close.png') no-repeat;
+	float: right;
+	position: absolute;
+	right: 12px;
+	top: 9px;
+	width: 10px;
+	height: 10px;
+	cursor: pointer;
+}
+
+.fc-tbx .c{
+	background: url('img/c.png') repeat;
+}
+
+.fc-tbx .tl{
+	background: url('img/tl.png') no-repeat;
+}
+.fc-tbx .t{
+	background: url('img/t.png') repeat-x;
+	height: 16px;
+}
+.fc-tbx .tr{
+	background: url('img/tr.png') no-repeat;
+}
+
+.fc-tbx .l{
+	background: url('img/l.png') repeat-y;
+}
+.fc-tbx .r{
+	background: url('img/r.png') repeat-y;
+}
+.fc-tbx .bl{
+	background: url('img/bl.png') no-repeat;
+
+}
+.fc-tbx .b{
+	background: url('img/b.png') no-repeat;
+	height: 25px;
+}
+.fc-tbx .br{
+	background: url('img/br.png') no-repeat;
+}
+
+.fc-tbx .t,
+.fc-tbx .c,
+.fc-tbx .b{
+	margin-right: 16px;
+}
+
+.fc-tbx .tl,
+.fc-tbx .l,
+.fc-tbx .bl{
+	background-position: 0% 50%;
+}
+
+.fc-tbx .tr,
+.fc-tbx .r,
+.fc-tbx .br{
+	margin-left: 16px;
+	background-position: 100% 50%;
+}
+
+/* FormCheck validation div */
+
+.fc-error {
+	border : 1px solid #888;
+	margin-top : 5px;
+	background-color : #EAEAEA;
+}
+.fc-error p {
+	margin : 5px;
+	color : #A00;
+}

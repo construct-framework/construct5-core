@@ -97,10 +97,6 @@ a {
     color: #00e;
 }
 
-a:visited {
-    color: #551a8b;
-}
-
 /*
  * Addresses outline displayed oddly in Chrome
  */
@@ -454,19 +450,6 @@ body {
     line-height: 1.6em;
     font-family: Helvetica,Arial,FreeSans,sans-serif;
 }
-
-a,
-a:link,
-a:visited,
-a:focus,
-a:active {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 b {
     font-weight: bold;
 }
@@ -729,6 +712,7 @@ isindex,
 .breadcrumbs img {
     display: inline-block;
     margin: 0;
+	float: left;
 }
 
 table.category {
@@ -1406,7 +1390,7 @@ nav ul li {
 nav ul.menu li a,
 nav ul.menu li span.separator {
     line-height: 1.8em;
-    padding: 6px 15px 5px;
+    padding: 8px 12px 2px;
 }
 
 nav ul.menu ul ul{
@@ -1543,13 +1527,13 @@ html,
     min-height: 100%;
 }
 .sticky-footer #body-container {
-	padding-bottom:150px;
+	padding-bottom:125px;
 }
 .sticky-footer #footer {
     position: relative;
     clear: both;
-	margin-top:-150px;
-	height:150px;}
+	margin-top:-125px;
+	height:125px;}
 }
 
 /*
@@ -1579,64 +1563,4 @@ html,
 
 #dm_docs .dm_row .dm_description p {
     margin-bottom: 0;
-}
-
-/* =============================================================================
-   Preview Module Styles for use with index.php?tp=1
-   ========================================================================== */
-
-.mod-preview {
-    position: relative;
-}
-
-.mod-preview-wrapper {
-    border: 1px solid #ccc;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    -moz-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    padding: 5px 10px;
-    margin: 5px 0;
-    opacity: 0.9;
-    background: #666;
-    z-index: 999;
-    min-height: 50px;
-}
-
-.mod-preview-wrapper div.moduletable,
-.mod-preview-wrapper div.moduletable_menu,
-.mod-preview-wrapper div.moduletable_text,
-.mod-preview-wrapper ul.menu,
-.mod-preview-wrapper #breadcrumbs {
-    opacity: 0;
-}
-
-.mod-preview-info {
-    color: #fff;
-    background: none;
-    border: none;
-    z-index: 999;
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    font-size: 2em;
-}
-
-#column-1 .mod-preview-wrapper,
-#column-2 .mod-preview-wrapper,
-#column-3 .mod-preview-wrapper,
-#column-4 .mod-preview-wrapper {
-    height: 940px;
-}
-
-#breadcrumbs .mod-preview-wrapper {
-    min-width: 125px;
-}
-
-#syndicate {
-    bottom: 120px;
-    left: 80px;
-    position: absolute;
 }

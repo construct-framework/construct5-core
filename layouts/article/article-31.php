@@ -13,188 +13,43 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo substr($this->language, 0, 2); ?>"> <!--<![endif]-->
 <head>
 <jdoc:include type="head" />
+<link rel="stylesheet" href="<?php echo 'templates/'.$this->template; ?>/css/formcheck.css" type="text/css" media="screen" />
+<script type="text/javascript" src="<?php echo 'templates/'.$this->template; ?>/js/formcheck.js"></script>
+<script type="text/javascript" src="<?php echo 'templates/'.$this->template; ?>/js/en.js"></script>
+<script type="text/javascript">
+window.addEvent('domready', function(){
+	new FormCheck('rfq-form', {
+		display : {	errorsLocation : 1,	indicateErrors : 2,	showErrors : 1,	addClassErrorToField : 1}
+	});
+});
+</script>
 </head>
 
-<body class="<?php echo $columnLayout; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
+<body class="sticky-footer <?php echo $columnLayout; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
 
 	<div id="footer-push">
-			<a id="page-top" name="page-top"></a>
-			<?php if ($headerAboveCount) : ?>
-				<div id="header-above" class="clearfix">
-					<?php if ($this->countModules('header-above-1')) : ?>
-						<div id="header-above-1" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-1" style="div" />
-						</div><!-- end header-above-1 -->
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-2')) : ?>
-						<div id="header-above-2" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-2" style="div" />
-						</div><!-- end header-above-2 -->
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-3')) : ?>
-						<div id="header-above-3" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-3" style="div" />
-						</div><!-- end header-above-3 -->								
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-4')) : ?>
-						<div id="header-above-4" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-4" style="div" />
-						</div><!-- end header-above-4 -->								
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-5')) : ?>
-						<div id="header-above-5" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-5" style="div" />
-						</div><!-- end header-above-5 -->								
-					<?php endif; ?>
-					
-					<?php if ($this->countModules('header-above-6')) : ?>
-						<div id="header-above-6" class="<?php echo $headerAboveClass ?>">
-							<jdoc:include type="modules" name="header-above-6" style="div" />
-						</div><!-- end header-above-6 -->								
-					<?php endif; ?>
-				</div><!-- end header-above -->
-			<?php endif; ?>
+		<a id="page-top" name="page-top"></a>
 
 		<header id="header" class="clear clearfix">
 			<div class="gutter clearfix">
-
-				<div class="date-container">
-					<span class="date-weekday"><?php	$now = &JFactory::getDate(); echo $now->toFormat('%A').','; ?></span>
-					<span class="date-month"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%B'); ?></span>
-					<span class="date-day"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%d').','; ?></span>
-					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y'); ?></span>
+				<div class="wrap">
+                <nav class="clear clearfix" role="navigation">
+                    <jdoc:include type="modules" name="nav" style="raw" />
+                </nav>
+                <h1 id="logo">
+                    <a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a>
+                </h1>
 				</div>
-				
-				<ul id="diagnostics">
-				    <li>column layout <?php echo $columnLayout; ?></li>
-					<li>component <?php echo $currentComponent; ?></li>					
-				    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
-				    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
-				    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-				    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
-				    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
-			    </ul>
-
-				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
-				
-				<?php if ($this->countModules('header')) : ?>
-					<jdoc:include type="modules" name="header" style="header" />	
-				<?php endif; ?>
-				
-				<nav>
-					<ul id="access">
-					  <li>Jump to:</li>
-					  <li><a href="<?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>					
-					  <?php if ($this->countModules('nav')) : ?>
-						<li><a href="<?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
-					  <?php endif; ?>					
-					  <?php if ($contentBelowCount) : ?>
-						<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
-					  <?php endif; ?>
-					</ul>
-				</nav>
-
 			</div><!--end gutter -->
 		</header><!-- end header-->
 		   
 		<section id="body-container">
 
-			<?php if ($headerBelowCount) : ?>
-				<div id="header-below" class="clearfix">						
-					<?php if ($this->countModules('header-below-1')) : ?>
-						<div id="header-below-1" class="<?php echo $headerBelowClass ?>">
-							<jdoc:include type="modules" name="header-below-1" style="div" module-class="gutter"/>
-						</div><!-- end header-below-1 -->								
-					<?php endif; ?>
-
-					<?php if ($this->countModules('header-below-2')) : ?>
-						<div id="header-below-2" class="<?php echo $headerBelowClass ?>">
-							<jdoc:include type="modules" name="header-below-2" style="div" module-class="gutter"/>
-						</div><!-- end header-below-2 -->
-					<?php endif; ?>
-
-					<?php if ($this->countModules('header-below-3')) : ?>
-						<div id="header-below-3" class="<?php echo $headerBelowClass ?>">
-							<jdoc:include type="modules" name="header-below-3" style="div" module-class="gutter"/>
-						</div><!-- end header-below-3 -->
-					<?php endif; ?>
-
-					<?php if ($this->countModules('header-below-4')) : ?>
-						<div id="header-below-4" class="<?php echo $headerBelowClass ?>">
-							<jdoc:include type="modules" name="header-below-4" style="div" module-class="gutter"/>
-						</div><!-- end header-below-4 -->
-					<?php endif; ?>
-
-					<?php if ($this->countModules('header-below-5')) : ?>
-						<div id="header-below-5" class="<?php echo $headerBelowClass ?>">
-							<jdoc:include type="modules" name="header-below-5" style="div" module-class="gutter"/>
-						</div><!-- end header-below-5 -->
-					<?php endif; ?>
-
-					<?php if ($this->countModules('header-below-6')) : ?>
-						<div id="header-below-6" class="<?php echo $headerBelowClass ?>">
-							<jdoc:include type="modules" name="header-below-6" style="div" module-class="gutter"/>
-						</div><!-- end header-below-6 -->
-					<?php endif; ?>											
-				</div><!-- end header-below -->
-			<?php endif; ?>
-		
-			<?php if ($this->countModules('breadcrumbs')) : ?>						
-				<jdoc:include type="module" name="breadcrumbs" />				
-			<?php endif; ?>		
+		<?php if ($this->countModules('breadcrumbs')) : ?>
+			<jdoc:include type="module" name="breadcrumbs" />
+		<?php endif; ?>
 			
-			<?php if ($this->countModules('nav')) : ?>
-				<nav id="nav" class="clear clearfix">
-					<jdoc:include type="modules" name="nav" style="raw" />
-				</nav><!-- end nav-->
-			<?php endif; ?>
-	  
-			<div id="content-container" class="clear clearfix">    
-
-				<?php if ($navBelowCount) : ?>
-					<nav id="nav-below" class="clearfix">						
-						<?php if ($this->countModules('nav-below-1')) : ?>
-							<div id="nav-below-1" class="<?php echo $navBelowClass ?>">
-								<jdoc:include type="modules" name="nav-below-1" style="div" module-class="gutter" />
-							</div><!-- end nav-below-1 -->								
-						<?php endif; ?>
-
-						<?php if ($this->countModules('nav-below-2')) : ?>
-							<div id="nav-below-2" class="<?php echo $navBelowClass ?>">
-								<jdoc:include type="modules" name="nav-below-2" style="div" module-class="gutter" />
-							</div><!-- end nav-below-2 -->
-						<?php endif; ?>
-
-						<?php if ($this->countModules('nav-below-3')) : ?>
-							<div id="nav-below-3" class="<?php echo $navBelowClass ?>">
-								<jdoc:include type="modules" name="nav-below-3" style="div" module-class="gutter" />
-							</div><!-- end nav-below-3 -->
-						<?php endif; ?>
-
-						<?php if ($this->countModules('nav-below-4')) : ?>
-							<div id="nav-below-4" class="<?php echo $navBelowClass ?>">
-								<jdoc:include type="modules" name="nav-below-4" style="div" module-class="gutter" />
-							</div><!-- end nav-below-4 -->
-						<?php endif; ?>
-
-						<?php if ($this->countModules('nav-below-5')) : ?>
-							<div id="nav-below-5" class="<?php echo $navBelowClass ?>">
-								<jdoc:include type="modules" name="nav-below-5" style="div" module-class="gutter" />
-							</div><!-- end nav-below-5 -->
-						<?php endif; ?>
-
-						<?php if ($this->countModules('nav-below-6')) : ?>
-							<div id="nav-below-6" class="<?php echo $navBelowClass ?>">
-								<jdoc:include type="modules" name="nav-below-6" style="div" module-class="gutter" />
-							</div><!-- end nav-below-6 -->
-						<?php endif; ?>													
-					</nav><!-- end nav-below -->
-				<?php endif; ?>
-			
+			<div id="content-container" class="clear clearfix">
 				<div id="load-first" class="clearfix">
 					<a id="content" name="content"></a>     
 					<div id="content-main">
