@@ -178,7 +178,7 @@ else {
 echo "\n"; ?>
 </head>
 
-<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; ?> error">
+<body class="<?php echo $columnLayout; ?> error">
 	<div id="footer-push">
 		<?php if ($headerAboveClass) : ?>
 			<div id="header-above" class="clearfix">

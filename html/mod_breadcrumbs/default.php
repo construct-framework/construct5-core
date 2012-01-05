@@ -7,10 +7,10 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-?><nav class="breadcrumbs<?php echo $moduleclass_sfx; ?>">
+?><nav class="breadcrumbs<?php echo $params->get('moduleclass_sfx') ?>">
 	<?php if ($params->get('showHere', 1))
 		{
-			echo '<h5 class="showHere">' .JText::_('MOD_BREADCRUMBS_HERE').'</h5>';
+			echo '<h5 class="showHere">' .JText::_('You are here:').'</h5>';
 		}
 	?>
 	<ol>
@@ -26,16 +26,21 @@
 					echo '</li>';
 				}
 				if($i < $count -2){
+                    echo '<li>';
 					echo ' '.$separator.' ';
+					echo '</li>';
 				}
 			}  else if ($params->get('showLast', 1)) { // when $i == $count -1 and 'showLast' is true
 				if($i > 0){
+    				echo '<li>';
 					echo ' '.$separator.' ';
+					echo '</li>';
 				}
-				 echo '<li>';
-				echo $list[$i]->name;
-				  echo '</li>';
+				    echo '<li>';
+				    echo $list[$i]->name;
+				    echo '</li>';
 			}
 		endfor; ?>
 	</ol>
 </nav>
+
