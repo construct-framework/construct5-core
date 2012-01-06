@@ -7,12 +7,8 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// Joomla 1.6 only
-
-?>
-
-<?php if ($this->params->get('show_articles')) : ?>
-    <section class="contact-articles">
+if ($this->params->get('show_articles')) :
+?><section class="contact-articles">
 	    <ol>
 		    <?php foreach ($this->item->articles as $article) :	?>
 			    <li>
@@ -25,3 +21,4 @@
 	    </ol>
     </section>
 <?php endif;
+
