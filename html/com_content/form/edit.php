@@ -7,8 +7,6 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// Joomla 1.6+ only
-
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.calendar');
@@ -133,3 +131,4 @@ $params = $this->state->get('params');
 	        </fieldset>
         </form>
     </section>
+
