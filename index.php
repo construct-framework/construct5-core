@@ -49,7 +49,7 @@ elseif ($results) {
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
+<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
 
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
