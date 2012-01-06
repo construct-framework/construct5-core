@@ -8,8 +8,6 @@
  * @since		1.6
  */
 
-// Joomla 1.6+ only
-
 JLoader::register('JHtmlUsers', JPATH_COMPONENT . '/helpers/html/users.php');
 JHtml::register('users.spacer', array('JHtmlUsers','spacer'));
 JHtml::register('users.helpsite', array('JHtmlUsers','helpsite'));
@@ -43,3 +41,4 @@ JHtml::register('users.editor', array('JHtmlUsers','editor'));
 	    </dl>
     </fieldset>
 <?php endif;?>
+

@@ -8,12 +8,9 @@
  * @since		1.6
  */
 
-// Joomla 1.6+ only
-
 jimport('joomla.user.helper');
-?>
 
-<fieldset id="users-profile-core">
+?><fieldset id="users-profile-core">
 	<legend>
 		<?php echo JText::_('COM_USERS_PROFILE_CORE_LEGEND'); ?>
 	</legend>
@@ -53,3 +50,4 @@ jimport('joomla.user.helper');
 
 	</dl>
 </fieldset>
+

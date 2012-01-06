@@ -8,8 +8,6 @@
  * @since		1.6
  */
 
-// Joomla 1.6+ only
-
 JLoader::register('JHtmlUsers', JPATH_COMPONENT . '/helpers/html/users.php');
 JHtml::register('users.spacer', array('JHtmlUsers','spacer'));
 
@@ -46,3 +44,4 @@ foreach ($fieldsets as $group => $fieldset): // Iterate through the form fieldse
     </fieldset>
 	<?php endif;?>
 <?php endforeach;?>
+
