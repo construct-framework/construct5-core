@@ -6,7 +6,6 @@
 * @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
-$doc->addCustomTag('<link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700" rel="stylesheet" type="text/css">');
 ?><!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
@@ -148,17 +147,12 @@ $doc->addCustomTag('<link href="http://fonts.googleapis.com/css?family=Yanone+Ka
 				<jdoc:include type="module" name="breadcrumbs" />				
 			<?php endif; ?>		
 			
-<<<<<<< HEAD
 			<?php if ($this->countModules('nav')) : ?>
 				<nav id="nav" class="clear clearfix">
 					<jdoc:include type="modules" name="nav" style="raw" />
 				</nav><!-- end nav-->
 			<?php endif; ?>
-	  
-=======
 
-
->>>>>>> parent of b026f78... Further development of template
 			<div id="content-container" class="clear clearfix">    
 
 				<?php if ($navBelowCount) : ?>
@@ -205,14 +199,12 @@ $doc->addCustomTag('<link href="http://fonts.googleapis.com/css?family=Yanone+Ka
 					<a id="content" name="content"></a>     
 					<div id="content-main">
 						<div class="gutter">
-<<<<<<< HEAD
-=======
+
 							<ul id="style-switch">
 								<li><a href="#" onclick="setActiveStyleSheet('light'); return false;" title="light">light</a></li>
 								<li><a href="#" onclick="setActiveStyleSheet('dark'); return false;" title="dark">dark</a></li>
 								<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
 							</ul>
->>>>>>> parent of b026f78... Further development of template
 						
 							<?php if ($contentAboveCount) : ?>
 								<div id="content-above" class="clearfix">						
