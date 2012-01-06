@@ -34,7 +34,7 @@ if ($mobileResults) {
 <body>
 	<div data-role="page" data-theme="b">
 		<header id="header" data-role="header">
-			<h1><a href="<?php echo $this->baseurl; ?>/" title="<?php echo $app->getCfg('sitename'); ?>"><?php echo $app->getCfg('sitename'); ?></a></h1>
+			<h1><a href="<?php echo $this->baseurl; ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')); ?>"><?php echo htmlspecialchars($app->getCfg('sitename')); ?></a></h1>
 		</header>
 		
 		<nav id="nav" data-role="navuigation">

@@ -6,7 +6,10 @@
 * @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
-?><!DOCTYPE html>
+
+?>
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
@@ -20,11 +23,11 @@
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
 			<?php if ($headerAboveCount) : ?>
-				<div id="header-above" class="clearfix">
+				<div id="header-above" class="clearfix">						
 					<?php if ($this->countModules('header-above-1')) : ?>
 						<div id="header-above-1" class="<?php echo $headerAboveClass ?>">
 							<jdoc:include type="modules" name="header-above-1" style="div" />
-						</div><!-- end header-above-1 -->
+						</div><!-- end header-above-1 -->								
 					<?php endif; ?>
 					
 					<?php if ($this->countModules('header-above-2')) : ?>
@@ -61,44 +64,51 @@
 
 		<header id="header" class="clear clearfix">
 			<div class="gutter clearfix">
-
+				
+				<!-- Uncomment to add date to header
 				<div class="date-container">
 					<span class="date-weekday"><?php	$now = &JFactory::getDate(); echo $now->toFormat('%A').','; ?></span>
 					<span class="date-month"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%B'); ?></span>
 					<span class="date-day"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%d').','; ?></span>
 					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y'); ?></span>
 				</div>
+				-->
 				
-				<ul id="diagnostics">
-				    <li>column layout <?php echo $columnLayout; ?></li>
-					<li>component <?php echo $currentComponent; ?></li>					
-				    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
-				    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
-				    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-				    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
-				    <?php if ($catId) {
-				    		if ($parentCategory) {
-				    		    echo '<li>parent category '.$parentCategory.'</li>';
-				    		}
-				    		$results = getAncestorCategories($catId);
-						    if ($results) {
-						        echo '<li>ancestor categories';
-							        if (count($results) > 0) {
-								        foreach ($results as $item) {
-									        echo ' '.$item->id.' ';
-								        }			
-							        }								
-						        echo'</li>';
-						    }
-						  } ?>
-			    </ul>
+				<?php if ($showDiagnostics) : ?>
+					<ul id="diagnostics">
+						<li>layout override</li>
+					    <li>column layout <?php echo $columnLayout; ?></li>
+						<li>component <?php echo $currentComponent; ?></li>					
+					    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
+					    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
+					    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
+					    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
+					    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
+					    <?php if ($catId && ($inheritStyle || $inheritLayout)) {
+					    		if ($parentCategory) {
+					    		    echo '<li>parent category '.$parentCategory.'</li>';
+					    		}
+					    		$results = getAncestorCategories($catId);
+							    if ($results) {
+							        echo '<li>ancestor categories';
+								        if (count($results) > 0) {
+									        foreach ($results as $item) {
+										        echo ' '.$item->id.' ';
+									        }			
+								        }								
+							        echo'</li>';
+							    }
+							  } ?>
+				    </ul>
+				<?php endif; ?>	
 
-				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
+				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>"><?php echo htmlspecialchars($app->getCfg('sitename'));?></a></h1>
 				
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="header" />	
 				<?php endif; ?>
 				
+				<!-- Uncomment to add Access menu
 				<nav>
 					<ul id="access">
 					  <li>Jump to:</li>
@@ -111,6 +121,15 @@
 					  <?php endif; ?>
 					</ul>
 				</nav>
+				-->
+
+				<?php if ($enableSwitcher) : ?>
+					<ul id="style-switch">
+						<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
+						<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
+						<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
+					</ul>
+				<?php endif; ?>	
 
 			</div><!--end gutter -->
 		</header><!-- end header-->
@@ -392,7 +411,7 @@
 
 			<a id="to-page-top" href="<?php $url->setFragment('page-top'); echo $url->toString();?>" class="to-additional">Back to Top</a>
 
-			<?php if ($this->countModules('syndicate')) : ?>
+			<?php if ($this->countModules('syndicate')) : ?>			
 			<div id="syndicate">
 				<jdoc:include type="modules" name="syndicate" />
 			</div>
