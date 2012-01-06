@@ -304,7 +304,11 @@ $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
 // Style sheets
-$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
+//$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
+$doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
+
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
 
 if ($this->direction == 'rtl') {
@@ -315,6 +319,13 @@ $cssFile = $styleOverride->getIncludeFile ();
 if ($cssFile) {
 	$doc->addStyleSheet($cssFile,'text/css','screen');
 }
+
+// Style sheet switcher
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/light.css" type="text/css" media="screen" title="light" />');
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/dark.css" type="text/css" media="screen" title="dark" />');
+$doc->addScript($template.'/js/styleswitch.js');
+
+
 //Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
 $doc->addCustomTag('  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
 
