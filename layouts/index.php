@@ -15,7 +15,7 @@
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
+<body class="<?php echo $columnLayout; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
 
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
@@ -75,22 +75,8 @@
 				    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
 				    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
 				    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
+				    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
 				    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
-				    <?php if ($catId) {
-				    		if ($parentCategory) {
-				    		    echo '<li>parent category '.$parentCategory.'</li>';
-				    		}
-				    		$results = getAncestorCategories($catId);
-						    if ($results) {
-						        echo '<li>ancestor categories';
-							        if (count($results) > 0) {
-								        foreach ($results as $item) {
-									        echo ' '.$item->id.' ';
-								        }			
-							        }								
-						        echo'</li>';
-						    }
-						  } ?>
 			    </ul>
 
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
@@ -213,7 +199,14 @@
 					<a id="content" name="content"></a>     
 					<div id="content-main">
 						<div class="gutter">
-						
+							<!--
+							<ul id="style-switch">
+								<li><a href="#" onclick="setActiveStyleSheet('light'); return false;" title="light">light</a></li>
+								<li><a href="#" onclick="setActiveStyleSheet('dark'); return false;" title="dark">dark</a></li>
+								<li><a href="#" onclick="setActiveStyleSheet('minimal'); return false;" title="minimal">minimal</a></li>
+								<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
+							</ul>
+						-->
 							<?php if ($contentAboveCount) : ?>
 								<div id="content-above" class="clearfix">						
 									<?php if ($this->countModules('content-above-1')) : ?>
@@ -387,7 +380,7 @@
 		</section><!-- end body-container -->
 	</div><!-- end footer-push -->
     
-	<footer id="footer" class="clear clearfix">
+	<footer id="footer" class="clearfix">
 		<div class="gutter clearfix">
 
 			<a id="to-page-top" href="<?php $url->setFragment('page-top'); echo $url->toString();?>" class="to-additional">Back to Top</a>
