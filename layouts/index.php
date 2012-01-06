@@ -199,14 +199,7 @@
 					<a id="content" name="content"></a>     
 					<div id="content-main">
 						<div class="gutter">
-							<!--
-							<ul id="style-switch">
-								<li><a href="#" onclick="setActiveStyleSheet('light'); return false;" title="light">light</a></li>
-								<li><a href="#" onclick="setActiveStyleSheet('dark'); return false;" title="dark">dark</a></li>
-								<li><a href="#" onclick="setActiveStyleSheet('minimal'); return false;" title="minimal">minimal</a></li>
-								<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
-							</ul>
-						-->
+						
 							<?php if ($contentAboveCount) : ?>
 								<div id="content-above" class="clearfix">						
 									<?php if ($this->countModules('content-above-1')) : ?>
@@ -380,7 +373,7 @@
 		</section><!-- end body-container -->
 	</div><!-- end footer-push -->
     
-	<footer id="footer" class="clearfix">
+	<footer id="footer" class="clear clearfix">
 		<div class="gutter clearfix">
 
 			<a id="to-page-top" href="<?php $url->setFragment('page-top'); echo $url->toString();?>" class="to-additional">Back to Top</a>

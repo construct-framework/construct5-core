@@ -1,6 +1,0 @@
-@charset "utf-8";
-/* CSS Document */
-table.comparison tbody tr {border-bottom:1px solid #CCC;}
-table.comparison tbody tr:hover {background-color: #efefef; -webkit-transition-duration: 200ms; -moz-transition-duration: 200ms; transition-duration: 200ms;}
-table.comparison tbody tr td {padding-right:5px;}
-table.comparison tbody tr td:first-child{font-weight:bold;width:13%;}

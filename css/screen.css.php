@@ -44,6 +44,5 @@ function compress($buffer) {
 require('screen.css');
 require('grids/construct.css');
 require('custom.css');
-require('dark.css');
 
 ?>

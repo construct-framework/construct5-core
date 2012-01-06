@@ -97,6 +97,10 @@ a {
     color: #00e;
 }
 
+a:visited {
+    color: #551a8b;
+}
+
 /*
  * Addresses outline displayed oddly in Chrome
  */
@@ -450,6 +454,19 @@ body {
     line-height: 1.6em;
     font-family: Helvetica,Arial,FreeSans,sans-serif;
 }
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 b {
     font-weight: bold;
 }
@@ -712,7 +729,6 @@ isindex,
 .breadcrumbs img {
     display: inline-block;
     margin: 0;
-	float: left;
 }
 
 table.category {
@@ -1390,7 +1406,7 @@ nav ul li {
 nav ul.menu li a,
 nav ul.menu li span.separator {
     line-height: 1.8em;
-    padding: 8px 12px 2px;
+    padding: 6px 15px 5px;
 }
 
 nav ul.menu ul ul{
@@ -1527,13 +1543,13 @@ html,
     min-height: 100%;
 }
 .sticky-footer #body-container {
-	padding-bottom:125px;
+	padding-bottom:150px;
 }
 .sticky-footer #footer {
     position: relative;
     clear: both;
-	margin-top:-125px;
-	height:125px;}
+	margin-top:-150px;
+	height:150px;}
 }
 
 /*
@@ -1623,4 +1639,8 @@ html,
     bottom: 120px;
     left: 80px;
     position: absolute;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of dbbb0e0... Merge_head

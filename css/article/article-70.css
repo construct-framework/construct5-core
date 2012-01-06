@@ -1,8 +1,0 @@
-#content-main ul {float:left;clear:left}
-#content-main ul li {float:left; list-style-type:none}
-#content-main ul li ul li{float:left;display:block}
-#content-main ul li ul li a {-moz-border-radius:10px;-webkit-border-radius:10px;border-radius: 10px;-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);-moz-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-border-color:#ddd #aaa #aaa #ddd;border-width:1px;border-style:solid;float:left;margin:0 5px 5px 0;padding:5px 0;line-height:4.2em;text-align:center;display:block;width:6.9em;font-size:1.5em; background:#333;color:#FFF;font-family:BebasNeueRegular}
-#content-main ul li ul li a:hover{color:#f57320}
-#content-main ul li ul li a:active{border-color:#ddd;-webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);-moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);box-shadow: 1px 1px 3px rgba(0,0,0,0.3)}
-#rokajaxsearch {background:none !important}
