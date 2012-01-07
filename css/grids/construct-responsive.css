@@ -193,9 +193,7 @@ body{
 .items-more{
     clear:both
 }
-h5.diagnostic:after{
-    content:"more than 960px"
-}
+
 @media only screen and (min-width:64em) and (max-width:80em){
     .alpha-1-main #content-main{
         float:right;
