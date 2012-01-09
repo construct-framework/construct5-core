@@ -50,7 +50,7 @@ reset($head['scripts']);
 unset($head['scripts'][$this->baseurl . '/media/system/js/mootools.js']);
 unset($head['scripts'][$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
 unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-core.js']);
-unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);		
+unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);
 $this->setHeadData($head);
 */
 
@@ -149,7 +149,7 @@ $columnGroupBetaCount = $column3Count + $column4Count;
 if ($columnGroupBetaCount) : $columnGroupBetaClass = 'count-'.$columnGroupBetaCount; endif;
 
 $columnLayout= 'main-only';
-	
+
 if (($columnGroupAlphaCount > 0 ) && ($columnGroupBetaCount == 0)) :
 	$columnLayout = 'alpha-'.$columnGroupAlphaCount.'-main';
 elseif (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount > 0)) :
@@ -157,14 +157,14 @@ elseif (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount > 0)) :
 elseif (($columnGroupAlphaCount == 0) && ($columnGroupBetaCount > 0)) :
 	$columnLayout = 'main-beta-'.$columnGroupBetaCount;
 endif;
-	
+
 #-------------------------------- Item ID ---------------------------------#
 
 $itemId = JRequest::getInt('Itemid', 0);
 
 #------------------------------- Article ID -------------------------------#
 
-if ($view == 'article') 
+if ($view == 'article')
 $articleId = JRequest::getInt('id');
 else ($articleId = NULL);
 
@@ -188,9 +188,9 @@ function getSection($id) {
 			$sql = "SELECT sectionid FROM #__content WHERE id = ".$temp[0];
 			$database->setQuery( $sql );
 			return $database->loadResult();
-		}		
+		}
 	}
-	
+
 $sectionId = getSection(JRequest::getInt('id'));
 
 #------------------------------ Category ID -------------------------------#
@@ -202,15 +202,15 @@ function getCategory($id) {
 		}
 	  elseif((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
 			return $id;
-		}		
+		}
 	  elseif(JRequest::getCmd('view', 0) == "article") {
 			$temp = explode(":",$id);
 			$sql = "SELECT catid FROM #__content WHERE id = ".$temp[0];
 			$database->setQuery( $sql );
 			return $database->loadResult();
-		}		
+		}
 	}
-	
+
 $catId = getCategory(JRequest::getInt('id'));
 
 #--------------------------------- Alias ----------------------------------#
@@ -233,7 +233,7 @@ $styleOverride->includeFile[] 				= $template.'/css/article/article-'.$articleId
 $styleOverride->includeFile[] 				= $template.'/css/article/article.css';
 $styleOverride->includeFile[] 				= $template.'/css/item/item-'.$itemId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/category/category-'.$catId.'.css';
-if ($view == 'category') {						
+if ($view == 'category') {
 	$styleOverride->includeFile[] 			= $template.'/css/category/category.css';
 }
 if ($view == 'categories') {
@@ -261,19 +261,19 @@ $layoutOverride 							= new ConstructTemplateHelper ();
 
 $layoutOverride->includeFile 				= array ();
 
-$layoutOverride->includeFile[] 				= $template.'/layouts/article/article-'.$articleId.'.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/article/article.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/item/item-'.$itemId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/article/article-'.$articleId.'.php';
+$layoutOverride->includeFile[] 				= $template.'/layouts/article/article.php';
+$layoutOverride->includeFile[] 				= $template.'/layouts/item/item-'.$itemId.'.php';
 $layoutOverride->includeFile[] 				= $template.'/layouts/category/category-'.$catId.'.php';
-if ($view == 'category') {						
+if ($view == 'category') {
 	$layoutOverride->includeFile[] 			= $template.'/layouts/category/category.php';
 }
 if ($view == 'categories') {
 	$layoutOverride->includeFile[]			= $template.'/layouts/category/categories.php';
 }
-$layoutOverride->includeFile[] 				= $template.'/layouts/section/section-'.$sectionId.'.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/section/section.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$currentComponent.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/section-'.$sectionId.'.php';
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/section.php';
+$layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$currentComponent.'.php';
 $layoutOverride->includeFile[] 				= $template.'/layouts/index.php';
 
 #---------------Mobile Extended Template Layout Overrides--------------------#
@@ -303,12 +303,15 @@ $doc->addCustomTag('<link rel="author" type="text/plain" href="'.$baseUrl.'human
 $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
+// Style sheet combination and minification
+/*
+$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
+*/
+
 // Style sheets
-/*$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');*/
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
-$doc->addStyleSheet($template.'/css/dark.css','text/css','screen');
 
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
 
@@ -322,11 +325,11 @@ if ($cssFile) {
 }
 
 // Style sheet switcher
-$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/light.css" type="text/css" media="screen" title="light" />');
-$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/dark.css" type="text/css" media="screen" title="dark" />');
-$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/minimal.css" type="text/css" media="screen" title="minimal" />');
+/*
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/diagnostic.css" type="text/css" media="screen" title="diagnostic" />');
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/wireframe.css" type="text/css" media="screen" title="wireframe" />');
 $doc->addScript($template.'/js/styleswitch.js');
-
+*/
 
 //Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
 $doc->addCustomTag('  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
@@ -348,11 +351,14 @@ $doc->addCustomTag('  #body-container {text-align:left;}');
 $doc->addCustomTag('  body.sticky-footer #footer-push {display:table;height:100%;}');
 
 // full width header/footer
+/*
+$doc->addCustomTag('  #body-container, #header-above {width: expression( document.body.clientWidth >80 ? "80.5em" : "auto" );margin:0 auto;}');
+*/
+// constrained width header/footer
 $doc->addCustomTag('  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >80 ? "80.5em" : "auto" );margin:0 auto;}');
-// not full width header/footer
-//$doc->addCustomTag('  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
 
 $doc->addCustomTag('  </style>');
 $doc->addCustomTag('  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
 $doc->addCustomTag('  <script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
 $doc->addCustomTag('<![endif]-->');
+

@@ -119,6 +119,12 @@ elseif ($results) {
 					<jdoc:include type="modules" name="header" style="header" />
 				<?php endif; ?>
 
+				<ul id="style-switch">
+					<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
+					<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
+					<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
+				</ul>
+
 				<nav>
 					<ul id="access">
 					  <li>Jump to:</li>
