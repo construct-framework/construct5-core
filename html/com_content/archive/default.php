@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -13,7 +13,7 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
     <?php if ($this->params->get('show_page_heading', 1)) : ?>
     <header>
         <h2>
-            <?php echo $this->escape($this->params->get('page_heading')); ?>
+            <?php echo htmlspecialchars($this->params->get('page_heading')); ?>
         </h2>
 	</header>
     <?php endif; ?>
@@ -23,7 +23,7 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
         <legend class="hidelabeltxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
         <?php if ($this->params->get('filter_field') != 'hide') : ?>
             <label class="filter-search-lbl" for="filter-search"><?php echo JText::_('COM_CONTENT_'.$this->params->get('filter_field').'_FILTER_LABEL').'&#160;'; ?>
-            	<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->filter); ?>" class="inputbox" onchange="document.getElementById('adminForm').submit();" />
+            	<input type="text" name="filter-search" id="filter-search" value="<?php echo htmlspecialchars($this->filter); ?>" class="inputbox" onchange="document.getElementById('adminForm').submit();" />
             </label>
         <?php endif; ?>
 

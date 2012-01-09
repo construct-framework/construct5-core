@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -311,7 +311,7 @@ $doc->addCustomTag('<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1
 // Mobile viewport optimized: j.mp/bplateviewport
 $doc->addCustomTag(' <meta name="viewport" content="width=device-width, initial-scale=1.0">');
 
-$doc->addCustomTag('<meta name="copyright" content="'.$app->getCfg('sitename').'" />');
+$doc->addCustomTag('<meta name="copyright" content="'.htmlspecialchars($app->getCfg('sitename')).'" />');
 
 // Site icons
 $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');

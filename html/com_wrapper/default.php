@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -23,19 +23,19 @@ function iFrameHeight() {
     <?php if ($this->params->get('show_page_heading', 1)) : ?>
         <h1>
 	        <?php if ($this->escape($this->params->get('page_heading'))) :?>
-		        <?php echo $this->escape($this->params->get('page_heading')); ?>
+		        <?php echo htmlspecialchars($this->params->get('page_heading')); ?>
 	        <?php else : ?>
-		        <?php echo $this->escape($this->params->get('page_title')); ?>
+		        <?php echo htmlspecialchars($this->params->get('page_title')); ?>
 	        <?php endif; ?>
         </h1>
     <?php endif; ?>
     <iframe <?php echo $this->wrapper->load; ?>
         id="blockrandom"
         name="iframe"
-        src="<?php echo $this->escape($this->wrapper->url); ?>"
-        width="<?php echo $this->escape($this->params->get('width')); ?>"
-        height="<?php echo $this->escape($this->params->get('height')); ?>"
-        scrolling="<?php echo $this->escape($this->params->get('scrolling')); ?>"
+        src="<?php echo htmlspecialchars($this->wrapper->url); ?>"
+        width="<?php echo htmlspecialchars($this->params->get('width')); ?>"
+        height="<?php echo htmlspecialchars($this->params->get('height')); ?>"
+        scrolling="<?php echo htmlspecialchars($this->params->get('scrolling')); ?>"
         class="wrapper<?php echo $this->pageclass_sfx; ?>">
         <?php echo JText::_('COM_WRAPPER_NO_IFRAMES'); ?>
     </iframe>

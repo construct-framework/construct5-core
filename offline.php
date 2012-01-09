@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -125,7 +125,7 @@ else {
 				</ul>
 				<?php endif; ?>	
 				
-				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>"><?php echo htmlspecialchars($app->getCfg('sitename'));?></a></h1>
+				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
 				
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="jexhtml" />	

@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -16,7 +16,7 @@ $upper_limit = $lang->getUpperLimitSearchWord(); ?>
 	    <label for="search-searchword">
 		    <?php echo JText::_('COM_SEARCH_SEARCH_KEYWORD'); ?>
 	    </label>
-	    <input type="text" name="searchword" id="search-searchword" size="30" maxlength="<?php echo $upper_limit; ?>" value="<?php echo $this->escape($this->origkeyword); ?>" class="inputbox" />
+	    <input type="text" name="searchword" id="search-searchword" size="30" maxlength="<?php echo $upper_limit; ?>" value="<?php echo htmlspecialchars($this->origkeyword); ?>" class="inputbox" />
 	    <button name="Search" onclick="this.form.submit()" class="button"><?php echo JText::_('COM_SEARCH_SEARCH');?></button>
 	    <input type="hidden" name="task" value="search" />
     </fieldset>

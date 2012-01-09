@@ -2,19 +2,20 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
 <extension version="1.6" type="template" client="site" method="upgrade">
 	<name>construct5-core</name>
-	<creationDate>December 13th, 2011</creationDate>
+	<creationDate>January 9th, 2012</creationDate>
 	<author>Cristina Solana | Matt Thomas</author>
 	<authorEmail>support@construct-framework.com</authorEmail>
 	<authorUrl>http://construct-framework.com</authorUrl>
-	<copyright>Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>0</version>
+	<version>∞</version>
 	<description></description>
 	<files>
 		<filename>css/article/index.html</filename>
 		<filename>css/category/index.html</filename>
 		<filename>css/component/index.html</filename>
 		<filename>css/grids/construct.css</filename>
+		<filename>css/grids/construct-responsive.css</filename>
 		<filename>css/grids/index.html</filename>
 		<filename>css/item/index.html</filename>
 		<filename>css/section/index.html</filename>
@@ -58,7 +59,7 @@
         <filename>template_thumbnail.png</filename>
         <filename>templateDetails.xml</filename>
     </files>
-	
+
 	<positions>
 		<position>analytics</position>
 		<position>breadcrumbs</position>
@@ -109,5 +110,6 @@
 		<position>offline</position>
 		<position>syndicate</position>
 	</positions>
-	
+
 </extension>
+

@@ -24,7 +24,7 @@ $class = ' class="first"';
 		<li<?php echo $class; ?>>
 			<?php $class = ''; ?>
 			<span class="item-title"><a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($child->id));?>">
-				<?php echo $this->escape($child->title); ?></a>
+				<?php echo htmlspecialchars($child->title); ?></a>
 			</span>
 
 			<?php if ($this->params->get('show_subcat_desc') == 1) :?>

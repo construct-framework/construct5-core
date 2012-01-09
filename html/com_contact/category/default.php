@@ -3,14 +3,14 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 ?><section class="contact-category<?php echo $this->pageclass_sfx;?>">
 	<?php if ($this->params->def('show_page_heading', 1)) : ?>
 		<h1>
-			<?php echo $this->escape($this->params->get('page_heading')); ?>
+			<?php echo htmlspecialchars($this->params->get('page_heading')); ?>
 		</h1>
 	<?php endif; ?>
 	<?php if($this->params->get('show_category_title', 1)) : ?>
