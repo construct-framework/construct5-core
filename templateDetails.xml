@@ -18,7 +18,6 @@
 		<filename>css/grids/construct-responsive.css</filename>
 		<filename>css/grids/index.html</filename>
 		<filename>css/item/index.html</filename>
-		<filename>css/section/index.html</filename>
 		<filename>css/editor.css</filename>
 		<filename>css/ie6.css</filename>
 		<filename>css/index.html</filename>
@@ -43,7 +42,6 @@
 		<filename>layouts/category/index.html</filename>
 		<filename>layouts/component/index.html</filename>
 		<filename>layouts/item/index.html</filename>
-		<filename>layouts/section/index.html</filename>
         <filename>apple-touch-icon.png</filename>
 		<filename>component.php</filename>
 		<filename>error.php</filename>
