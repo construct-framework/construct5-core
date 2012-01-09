@@ -18,6 +18,7 @@
 		<filename>css/grids/construct-responsive.css</filename>
 		<filename>css/grids/index.html</filename>
 		<filename>css/item/index.html</filename>
+		<filename>css/custom.css</filename>
 		<filename>css/editor.css</filename>
 		<filename>css/ie6.css</filename>
 		<filename>css/index.html</filename>
@@ -26,6 +27,7 @@
 		<filename>css/print.css</filename>
 		<filename>css/rtl.css</filename>
 		<filename>css/screen.css</filename>
+    	<filename>css/screen.css.php</filename>
 		<filename>elements/helper.php</filename>
 		<filename>elements/index.html</filename>
 		<filename>elements/logic.php</filename>
