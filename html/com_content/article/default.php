@@ -3,14 +3,14 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-?><article id="item-page<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+?><article id="item-page<?php echo htmlspecialchars($this->params->get('pageclass_sfx')); ?>">
 		<?php if ($this->params->get('show_page_title',1) && $this->params->get('page_title') != $this->article->title) : ?>
 		<h1>
-			<?php echo $this->escape($this->params->get('page_title')); ?>
+			<?php echo htmlspecialchars($this->params->get('page_title')); ?>
 		</h1>		
 		<?php endif; ?>
 	
@@ -18,9 +18,9 @@
 	    <h2>
 		    <?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
 		    <a href="<?php echo $this->article->readmore_link; ?>">
-			    <?php echo $this->escape($this->article->title); ?></a>
+			    <?php echo htmlspecialchars($this->article->title); ?></a>
 		    <?php else :
-			    echo $this->escape($this->article->title);
+			    echo htmlspecialchars($this->article->title);
 		    endif; ?>
 	    </h2>
 		<?php endif; ?>
@@ -74,7 +74,7 @@
 				        <?php if ($this->params->get('link_section')) : ?>
 					        <?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?>
 				        <?php endif; ?>
-				        <?php echo $this->escape($this->article->section); ?>
+				        <?php echo htmlspecialchars($this->article->section); ?>
 				        <?php if ($this->params->get('link_section')) : ?>
 					        <?php echo '</a>'; ?>
 				        <?php endif; ?>
@@ -89,7 +89,7 @@
 				        <?php if ($this->params->get('link_category')) : ?>
 					        <?php echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->article->catslug, $this->article->sectionid)).'">'; ?>
 				        <?php endif; ?>
-				        <?php echo $this->escape($this->article->category); ?>
+				        <?php echo htmlspecialchars($this->article->category); ?>
 				        <?php if ($this->params->get('link_category')) : ?>
 					        <?php echo '</a>'; ?>
 				        <?php endif; ?>
@@ -117,8 +117,8 @@
 				<?php endif; ?>
 				<?php if ($this->params->get('show_url') && $this->article->urls) : ?>
 			    <span class="hits">
-				    <a href="<?php echo $this->escape($this->article->urls); ?>">
-					    <?php echo $this->escape($this->article->urls); ?></a>
+				    <a href="<?php echo htmlspecialchars($this->article->urls); ?>">
+					    <?php echo htmlspecialchars($this->article->urls); ?></a>
 			    </span>
 				<?php endif; ?>
     	<?php if ($useDefList) : ?>

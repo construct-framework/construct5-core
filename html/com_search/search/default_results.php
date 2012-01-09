@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -15,17 +15,17 @@
 			<?php echo $this->pagination->limitstart + $result->count.'. ';?>
 			<?php if ($result->href) : ?>
 			<a href="<?php echo JRoute :: _($result->href) ?>">
-					<?php echo $this->escape($result->title); ?>
+					<?php echo htmlspecialchars($result->title); ?>
 			</a>
 			<?php else : ?>
-				<?php echo $this->escape($result->title); ?>
+				<?php echo htmlspecialchars($result->title); ?>
 			<?php endif; ?>
 		</dt>
 		<?php if ($result->section) : ?>
 		<dd class="result-category">
 			<?php echo JText::_('Category') ?>:
 			<span>
-				<?php echo $this->escape($result->section); ?>
+				<?php echo htmlspecialchars($result->section); ?>
 			</span>
 		</dd>
 		<?php endif; ?>

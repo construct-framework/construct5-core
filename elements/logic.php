@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -297,14 +297,19 @@ $doc->addCustomTag('<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1
 // Mobile viewport optimized: j.mp/bplateviewport
 $doc->addCustomTag(' <meta name="viewport" content="width=device-width, initial-scale=1.0">');
 
-$doc->addCustomTag('<meta name="copyright" content="'.$app->getCfg('sitename').'" />');
+$doc->addCustomTag('<meta name="copyright" content="'.htmlspecialchars($app->getCfg('sitename')).'" />');
 $doc->addCustomTag('<link rel="author" type="text/plain" href="'.$baseUrl.'humans.txt" />');
 // Site icons
 $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
 // Style sheets
-$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
+/*$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');*/
+$doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/dark.css','text/css','screen');
+
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
 
 if ($this->direction == 'rtl') {
@@ -315,6 +320,14 @@ $cssFile = $styleOverride->getIncludeFile ();
 if ($cssFile) {
 	$doc->addStyleSheet($cssFile,'text/css','screen');
 }
+
+// Style sheet switcher
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/light.css" type="text/css" media="screen" title="light" />');
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/dark.css" type="text/css" media="screen" title="dark" />');
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/minimal.css" type="text/css" media="screen" title="minimal" />');
+$doc->addScript($template.'/js/styleswitch.js');
+
+
 //Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
 $doc->addCustomTag('  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
 

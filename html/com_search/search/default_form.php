@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -14,7 +14,7 @@
 	<fieldset class="word">
 		<label for="search-searchword">
 			<?php echo JText::_('Search Keyword') ?>
-			<input type="search" name="searchword" id="search-searchword"  maxlength="20" value="<?php echo $this->escape($this->searchword) ?>" class="inputbox">
+			<input type="search" name="searchword" id="search-searchword"  maxlength="20" value="<?php echo htmlspecialchars($this->searchword) ?>" class="inputbox">
 		</label>
 		<button name="Search" onclick="this.form.submit()" class="button">
 			<?php echo JText::_( 'Search' );?>
@@ -23,7 +23,7 @@
 	
 	<?php if (!empty($this->searchword)) : ?>
 		<div class="searchintro">
-				<?php echo JText::_('Search Keyword') ?> <?php echo $this->escape($this->searchword) ?>
+				<?php echo JText::_('Search Keyword') ?> <?php echo htmlspecialchars($this->searchword) ?>
 				<?php echo $this->result ?>
 		</div>
 	<?php endif; ?>

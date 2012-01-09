@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -43,7 +43,7 @@ if ( $this->params->get( 'show_limit' ) ) :
 		    <?php if ( $this->params->get( 'show_name' ) ) : ?>
 			    <td class="item-title" mastheads="tableOrdering">
 				    <a href="<?php echo $item->link; ?>">
-					    <?php echo $this->escape($item->name); ?>
+					    <?php echo htmlspecialchars($item->name); ?>
 				    </a>
 			    </td>
 		    <?php endif; ?>	

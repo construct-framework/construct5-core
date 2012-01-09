@@ -3,7 +3,7 @@
 * @package		Unified HTML5 Template Framework for Joomla!+
 * @author		Cristina Solana http://nightshiftcreative.com
 * @author		Matt Thomas http://construct-framework.com | http://betweenbrain.com
-* @copyright	Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.
+* @copyright	Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -11,9 +11,9 @@ if ($this->item->params->get('show_title')) :
 ?><h2>
 		<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
 			<a href="<?php echo $this->item->readmore_link; ?>" class="contentpagetitle">
-				<?php echo $this->escape($this->item->title); ?></a>
+				<?php echo htmlspecialchars($this->item->title); ?></a>
 		<?php else :
-			echo $this->escape($this->item->title);
+			echo htmlspecialchars($this->item->title);
 		endif; ?>
 	</h2>
 	<?php endif; ?>
@@ -65,7 +65,7 @@ if ($this->item->params->get('show_title')) :
 				<?php if ($this->item->params->get('link_section')) : ?>
 					<a href="<?php echo JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)); ?>">
 				<?php endif; ?>
-				<?php echo $this->escape($this->item->section); ?>
+				<?php echo htmlspecialchars($this->item->section); ?>
 				<?php if ($this->item->params->get('link_section')) : ?>
 					<?php echo '</a>'; ?>
 				<?php endif; ?>
@@ -80,7 +80,7 @@ if ($this->item->params->get('show_title')) :
 				<?php if ($this->item->params->get('link_category')) : ?>
 					<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)); ?>">
 				<?php endif; ?>
-				<?php echo $this->escape($this->item->category); ?>
+				<?php echo htmlspecialchars($this->item->category); ?>
 				<?php if ($this->item->params->get('link_category')) : ?>
 					<?php echo '</a>'; ?>
 				<?php endif; ?>
@@ -112,7 +112,7 @@ if ($this->item->params->get('show_title')) :
 		<?php if ($this->item->params->get('show_url') && $this->item->urls) : ?>
 		<span class="hits">
 			<a href="<?php echo $this->item->urls; ?>" target="_blank">
-				<?php echo $this->escape($this->item->urls); ?></a>
+				<?php echo htmlspecialchars($this->item->urls); ?></a>
 		</span>
 		<?php endif; ?>
 			
