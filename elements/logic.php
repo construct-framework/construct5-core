@@ -317,9 +317,15 @@ $doc->addCustomTag('<meta name="copyright" content="'.htmlspecialchars($app->get
 $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
-// Style sheets
+// Style sheet combination and minification
+/*
 $doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
-$doc->addStyleSheet($template.'/css/print.css','text/css','print');
+*/
+
+// Style sheets
+$doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
 
 if ($this->direction == 'rtl') {
 	$doc->addStyleSheet($template.'/css/rtl.css','text/css','screen');
