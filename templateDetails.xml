@@ -41,9 +41,13 @@
 		<filename>js/PIE.htc</filename>
 		<filename>layouts/index.html</filename>
 		<filename>layouts/article/index.html</filename>
+		<filename>layouts/article/override.php</filename>
 		<filename>layouts/category/index.html</filename>
+		<filename>layouts/category/override.php</filename>
 		<filename>layouts/component/index.html</filename>
+		<filename>layouts/component/override.php</filename>
 		<filename>layouts/item/index.html</filename>
+		<filename>layouts/item/override.php</filename>
         <filename>apple-touch-icon.png</filename>
 		<filename>component.php</filename>
 		<filename>error.php</filename>
