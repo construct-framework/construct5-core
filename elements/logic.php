@@ -43,7 +43,7 @@ JHTML::_('behavior.framework', true);
 // Enable modal pop-ups
 JHTML::_('behavior.modal');
 
-// Remove MooTools if set to no.
+// Remove MooTools. Careful, 3PD extensions may rely on MooTools.
 /*
 	$head=$this->getHeadData();
 	reset($head['scripts']);
@@ -318,9 +318,7 @@ $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
 // Style sheet combination and minification
-/*
-$doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
-*/
+// $doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
 
 // Style sheets
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
@@ -335,15 +333,17 @@ $cssFile = $styleOverride->getIncludeFile ();
 if ($cssFile) {
 	$doc->addStyleSheet($cssFile,'text/css','screen');
 }
-//Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
+// Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
 $doc->addCustomTag("\n".'  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
-
+// Smooth in-page link (i.e. back to top) scrolling
 $doc->addCustomTag("\n".'  <script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
 
 // Internet Explorer Fixes
 $doc->addCustomTag("\n".'  <!--[if lt IE 9]>');
 $doc->addCustomTag("\n".'  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>');
-$doc->addCustomTag("\n".'  <style type="text/css">.pie {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
+// Targeted CSS3 Support
+// $doc->addCustomTag("\n".'  <style type="text/css"> /* list elements here */  {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
+
 $doc->addCustomTag('<![endif]-->');
 
 // Internet Explorer 6 Fixes
@@ -357,9 +357,10 @@ $doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height
 // full width header/footer
 $doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >80 ? "80.5em" : "auto" );margin:0 auto;}');
 // not full width header/footer
-//$doc->addCustomTag("\n".'  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
+// $doc->addCustomTag("\n".'  #body-container, #header-above {width: expression( document.body.clientWidth >80 ? "80.5em" : "auto" );margin:0 auto;}');
 
 $doc->addCustomTag("\n".'  </style>');
+// PNG Transparency Fix - add comma separated list of elements after h1 a in second line
 $doc->addCustomTag("\n".'  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
 $doc->addCustomTag("\n".'  <script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
 $doc->addCustomTag('<![endif]-->');

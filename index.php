@@ -102,29 +102,29 @@ elseif ($results) {
 					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y'); ?></span>
 				</div>
 				
-					<ul id="diagnostics">
-					    <li>column layout <?php echo $columnLayout; ?></li>
-						<li>component <?php echo $currentComponent; ?></li>					
-					    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
-					    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
-					    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-					    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
-					    <?php if ($catId) {
-					    		if ($parentCategory) {
-					    		    echo '<li>parent category '.$parentCategory.'</li>';
-					    		}
-					    		$results = getAncestorCategories($catId);
-							    if ($results) {
-							        echo '<li>ancestor categories';
-								        if (count($results) > 0) {
-									        foreach ($results as $item) {
-										        echo ' '.$item->id.' ';
-									        }			
-								        }								
-							        echo'</li>';
-							    }
-							  } ?>
-				    </ul>
+				<ul id="diagnostics">
+				    <li>column layout <?php echo $columnLayout; ?></li>
+					<li>component <?php echo $currentComponent; ?></li>					
+				    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
+				    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
+				    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
+				    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
+				    <?php if ($catId) {
+				    		if ($parentCategory) {
+				    		    echo '<li>parent category '.$parentCategory.'</li>';
+				    		}
+				    		$results = getAncestorCategories($catId);
+						    if ($results) {
+						        echo '<li>ancestor categories';
+							        if (count($results) > 0) {
+								        foreach ($results as $item) {
+									        echo ' '.$item->id.' ';
+								        }			
+							        }								
+						        echo'</li>';
+						    }
+						  } ?>
+			    </ul>
 
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
 				

@@ -9,7 +9,6 @@
 
 ?>
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
@@ -18,7 +17,7 @@
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout . ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
+<body class="<?php echo $columnLayout . ' sticky-footer'; echo ' ' . $currentComponent; if($articleId) echo ' article-' . $articleId; if ($itemId) echo ' item-' . $itemId; if($catId) echo ' category-' . $catId; ?>">
 
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
@@ -71,14 +70,6 @@
 					<jdoc:include type="modules" name="header" style="header" />	
 				<?php endif; ?>
 				
-				<?php if ($enableSwitcher) : ?>
-					<ul id="style-switch">
-						<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
-					</ul>
-				<?php endif; ?>	
-
 			</div><!--end gutter -->
 		</header><!-- end header-->
 		   
