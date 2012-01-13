@@ -9,23 +9,35 @@
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
-?><section class="blog<?php echo $this->pageclass_sfx;?>">
-    <?php if ($this->params->get('show_page_heading', 1) || $this->params->get('show_category_title', 1) || $this->params->get('page_subheading')) : ?>
-    <hgroup>
-        <?php if ($this->params->get('show_page_heading', 1)) : ?>
-        <h2>
-	        <?php echo htmlspecialchars($this->params->get('page_heading')); ?>
-        </h2>
-        <?php endif; ?>
+$hgroup     = $this->params->get('show_page_heading', 1) + ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading'));
+$header     = $hgroup + ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1));
 
-        <?php if ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading')) : ?>
-        <h2>
-	        <?php echo htmlspecialchars($this->params->get('page_subheading')); ?>
-	        <?php if ($this->params->get('show_category_title')) : ?>
-		        <span class="subheading-category"><?php echo $this->category->title;?></span>
-	        <?php endif; ?>
-        </h2>
+?><section class="blog<?php echo $this->pageclass_sfx;?>">
+
+    <?php if ($header) : ?>
+    <header class="section-info">
+    <?php endif; ?>
+
+    <?php if ($hgroup > 1) : ?>
+    <hgroup>
+    <?php endif; ?>
+
+    <?php if ($this->params->get('show_page_heading', 1)) : ?>
+    <h1>
+        <?php echo htmlspecialchars($this->params->get('page_heading')); ?>
+    </h1>
+    <?php endif; ?>
+
+    <?php if ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading')) : ?>
+    <h2>
+        <?php echo htmlspecialchars($this->params->get('page_subheading')); ?>
+        <?php if ($this->params->get('show_category_title')) : ?>
+	        <span class="subheading-category"><?php echo $this->category->title;?></span>
         <?php endif; ?>
+    </h2>
+    <?php endif; ?>
+
+    <?php if ($hgroup > 1) : ?>
     </hgroup>
     <?php endif; ?>
 
@@ -38,6 +50,10 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 	        <?php echo JHtml::_('content.prepare', $this->category->description); ?>
         <?php endif; ?>
     </section>
+    <?php endif; ?>
+    
+    <?php if ($header) : ?>
+    </header>
     <?php endif; ?>
 
     <?php $leadingcount=0 ; ?>

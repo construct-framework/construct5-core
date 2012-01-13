@@ -13,9 +13,9 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 $params		= $this->item->params;
 $canEdit	= $this->item->params->get('access-edit');
 $user		= JFactory::getUser();
-$details    = ($params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits') + ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon')));
-$hgroup     = ($this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category'));
-$header     = ($this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits') + ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon')));
+$details    = $params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits') + ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon'));
+$hgroup     = $this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category');
+$header     = $hgroup + $details;
 
 ?>
 <article class="item-page<?php echo $this->pageclass_sfx?>">
