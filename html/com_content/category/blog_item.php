@@ -15,10 +15,6 @@ JHtml::_('behavior.tooltip');
 JHtml::core();
 ?>
 
-<?php if ($this->item->state == 0) : ?>
-<section class="system-unpublished">
-<?php endif; ?>
-
 <?php if ($params->get('show_title')) : ?>
 <h2>
 	<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
@@ -162,10 +158,6 @@ JHtml::core();
 					echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
 				endif; ?></a>
 		</p>
-<?php endif; ?>
-
-<?php if ($this->item->state == 0) : ?>
-</section>
 <?php endif; ?>
 
 <?php echo $this->item->event->afterDisplayContent;

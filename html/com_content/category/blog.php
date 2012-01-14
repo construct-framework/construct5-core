@@ -9,12 +9,11 @@
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
-$hgroup     = $this->params->get('show_page_heading', 1) + ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading'));
-$header     = $hgroup + ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1));
+$hgroup = $this->params->get('show_page_heading', 1) + ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading'));
 
 ?><section class="blog<?php echo $this->pageclass_sfx;?>">
 
-    <?php if ($header) : ?>
+    <?php if ($hgroup) : ?>
     <header class="section-info">
     <?php endif; ?>
 
@@ -40,6 +39,10 @@ $header     = $hgroup + ($this->params->get('show_description', 1) || $this->par
     <?php if ($hgroup > 1) : ?>
     </hgroup>
     <?php endif; ?>
+    
+    <?php if ($hgroup) : ?>
+    </header>
+    <?php endif; ?>
 
     <?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
     <section class="category-desc clearfix">
@@ -50,10 +53,6 @@ $header     = $hgroup + ($this->params->get('show_description', 1) || $this->par
 	        <?php echo JHtml::_('content.prepare', $this->category->description); ?>
         <?php endif; ?>
     </section>
-    <?php endif; ?>
-    
-    <?php if ($header) : ?>
-    </header>
     <?php endif; ?>
 
     <?php $leadingcount=0 ; ?>
