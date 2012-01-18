@@ -14,8 +14,7 @@ $params		= $this->item->params;
 $canEdit	= $this->item->params->get('access-edit');
 $user		= JFactory::getUser();
 $details    = $params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits') + ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon'));
-$hgroup     = $this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category');
-$header     = $hgroup + $details;
+$header     = $details + $this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category');
 
 ?>
 <article class="item-page<?php echo $this->pageclass_sfx?>">
@@ -23,7 +22,7 @@ $header     = $hgroup + $details;
     <header class="article-info">
     <?php endif; ?>
 
-    <?php if ($hgroup) : ?>
+    <?php if ($header > 1) : ?>
     <hgroup>
     <?php endif; ?>
 
@@ -80,7 +79,7 @@ $header     = $hgroup + $details;
     </h3>
     <?php endif; ?>
 
-    <?php if ($hgroup) : ?>
+    <?php if ($header > 1) : ?>
     </hgroup>
     <?php endif; ?>
 

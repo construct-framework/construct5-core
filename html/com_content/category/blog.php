@@ -9,15 +9,15 @@
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
-$hgroup = $this->params->get('show_page_heading', 1) + ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading'));
+$header = $this->params->get('show_page_heading', 1) + ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading'));
 
 ?><section class="blog<?php echo $this->pageclass_sfx;?>">
 
-    <?php if ($hgroup) : ?>
+    <?php if ($header) : ?>
     <header class="section-info">
     <?php endif; ?>
 
-    <?php if ($hgroup > 1) : ?>
+    <?php if ($header > 1) : ?>
     <hgroup>
     <?php endif; ?>
 
@@ -36,11 +36,11 @@ $hgroup = $this->params->get('show_page_heading', 1) + ($this->params->get('show
     </h2>
     <?php endif; ?>
 
-    <?php if ($hgroup > 1) : ?>
+    <?php if ($header > 1) : ?>
     </hgroup>
     <?php endif; ?>
     
-    <?php if ($hgroup) : ?>
+    <?php if ($header) : ?>
     </header>
     <?php endif; ?>
 

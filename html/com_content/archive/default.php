@@ -12,9 +12,9 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 ?><section class="archive<?php echo $this->pageclass_sfx;?>">
     <?php if ($this->params->get('show_page_heading', 1)) : ?>
     <header>
-        <h2>
+        <h1>
             <?php echo htmlspecialchars($this->params->get('page_heading')); ?>
-        </h2>
+        </h1>
 	</header>
     <?php endif; ?>
 

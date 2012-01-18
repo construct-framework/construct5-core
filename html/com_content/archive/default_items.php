@@ -34,7 +34,7 @@ $params = &$this->params; ?>
 <?php endif; ?>
 
             <?php if ($params->get('show_parent_category')) : ?>
-            <h4 class="parent-category-name">
+            <h3 class="parent-category-name">
                 <?php	$title = $this->escape($item->parent_title);
                         $url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($item->parent_slug)).'">'.$title.'</a>';?>
                 <?php if ($params->get('link_parent_category') && $item->parent_slug) : ?>
@@ -42,11 +42,11 @@ $params = &$this->params; ?>
                     <?php else : ?>
                     <?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
                 <?php endif; ?>
-            </h4>
+            </h3>
             <?php endif; ?>
 
             <?php if ($params->get('show_category')) : ?>
-            <h5 class="category-name">
+            <h3 class="category-name">
                 <?php	$title = $this->escape($item->category_title);
 		                $url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($item->catslug)) . '">' . $title . '</a>'; ?>
                 <?php if ($params->get('link_category') && $item->catslug) : ?>
@@ -54,7 +54,7 @@ $params = &$this->params; ?>
 	                <?php else : ?>
 	                <?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
                 <?php endif; ?>
-            </h5>
+            </h3>
             <?php endif; ?>
     <?php if ($useDefList) : ?>
         </hgroup>

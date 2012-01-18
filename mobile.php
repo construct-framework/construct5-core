@@ -14,7 +14,7 @@ if ($mobileResults) {
 	$alternateIndexFile = $mobileResults;
 	include_once $alternateIndexFile;
 } else {
-?><!DOCTYPE html> 
+?><!DOCTYPE html>
 <html class="no-js">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -36,7 +36,7 @@ if ($mobileResults) {
 		<header id="header" data-role="header">
 			<h1><a href="<?php echo $this->baseurl; ?>/" title="<?php echo $app->getCfg('sitename'); ?>"><?php echo $app->getCfg('sitename'); ?></a></h1>
 		</header>
-		
+
 		<nav id="nav" data-role="navuigation">
 			<jdoc:include type="modules" name="nav" style="raw" />
 		</nav>
@@ -54,7 +54,8 @@ if ($mobileResults) {
 			<?php endif; ?>
 		</footer>
 	</div>
-	  
+
 </body>
 </html>
 <?php }
+
