@@ -11,13 +11,13 @@
 <html class="no-js">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="<?php echo $this->baseurl.'templates/'.$this->template; ?>/css/mobile.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/css/mobile.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 		<?php //Load Mobile Extended Template Style Overrides
-		$mobileCssFile = $mobileStyleOverride->getIncludeFile ();
+		$mobileCssFile = $mobileStyleOverride->getIncludeFile ();		
 		if ($mobileCssFile) : ?>
-		<link rel="stylesheet" href="<?php echo $this->baseurl.$mobileCssFile; ?>" type="text/css" media="screen" />
-		<?php endif; ?>
+			<link rel="stylesheet" href="<?php echo $baseUrl.$mobileCssFile; ?>" type="text/css" media="screen" />			
+		<?php endif; ?>		
 		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 		<script>(function($) {$(document).bind("mobileinit", function() {$.mobile.ajaxEnabled = false;});})(jQuery);</script>
 		<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
