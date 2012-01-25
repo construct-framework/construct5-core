@@ -23,11 +23,11 @@ $header = $this->params->get('show_page_heading', 1) + ($this->params->get('show
     
     <?php if ($this->params->get('show_base_description')) : ?>	
 		<?php if($this->params->get('categories_description')) : ?>
-			<?php echo  JHtml::_('content.prepare',$this->params->get('categories_description')); ?>
+			<?php echo  JHtml::_('content.prepare',$this->params->get('categories_description'), '', 'com_content.categories'); ?>
 		<?php  else: ?>	
 		<?php  if ($this->parent->description) : ?>
 		<p class="category-desc">
-			<?php  echo JHtml::_('content.prepare', $this->parent->description); ?>
+			<?php  echo JHtml::_('content.prepare', $this->parent->description, '', 'com_content.categories'); ?>
 		</p>
 		<?php  endif; ?>
 		<?php  endif; ?>

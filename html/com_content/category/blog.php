@@ -50,7 +50,7 @@ $header = $this->params->get('show_page_heading', 1) + ($this->params->get('show
 	        <img src="<?php echo $this->category->getParams()->get('image'); ?>"/>
         <?php endif; ?>
         <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-	        <?php echo JHtml::_('content.prepare', $this->category->description); ?>
+	        <?php echo JHtml::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
         <?php endif; ?>
     </section>
     <?php endif; ?>

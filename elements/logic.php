@@ -38,10 +38,10 @@ $alternatemTemplate		= $templateDir.'/layouts/mobile.php';
 $this->setGenerator('Construct Framework | http;//construct-framework.com');
 
 // Enable Mootols
-JHTML::_('behavior.framework', true);
+JHtml::_('behavior.framework', true);
 
 // Enable modal pop-ups
-JHTML::_('behavior.modal');
+JHtml::_('behavior.modal');
 
 // Remove MooTools. Careful, 3PD extensions may rely on MooTools.
 /*
