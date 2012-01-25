@@ -15,7 +15,7 @@ $images 	= json_decode($this->item->images);
 $urls 		= json_decode($this->item->urls);
 $canEdit	= $this->item->params->get('access-edit');
 $user		= JFactory::getUser();
-$details    = $params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits') + ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon'));
+$details    = $params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits');
 $header     = $details + $this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category');
 
 ?>
@@ -37,11 +37,11 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
 	<?php if ($params->get('show_title')) : ?>
     <h2>
 	    <?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
-	    <a href="<?php echo $this->item->readmore_link; ?>">
-		    <?php echo htmlspecialchars($this->item->title); ?>
-	    </a>
+			<a href="<?php echo $this->item->readmore_link; ?>">
+				<?php echo htmlspecialchars($this->item->title); ?>
+			</a>
 	    <?php else : ?>
-	    <?php echo htmlspecialchars($this->item->title); ?>
+	    	<?php echo htmlspecialchars($this->item->title); ?>
 	    <?php endif; ?>
     </h2>
 	<?php endif; ?>
@@ -88,7 +88,7 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
 
     <?php if ($params->get('show_create_date')) : ?>
     <time class="create">
-        <?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date',$this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
     </time>
     <?php endif; ?>
 
@@ -100,7 +100,7 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
 
     <?php if ($params->get('show_publish_date')) : ?>
     <time class="published">
-        <?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE', JHtml::_('date',$this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
+        <?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
     </time>
     <?php endif; ?>
 
@@ -126,33 +126,24 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
     </span>
     <?php endif; ?>
 
-	<?php if ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
-    <ul class="actions">
-    <?php if (!$this->print) : ?>
-	    <?php if ($params->get('show_print_icon')) : ?>
-	        <li class="print-icon">
-	            <?php echo JHtml::_('icon.print_popup',  $this->item, $params); ?>
-	        </li>
-	    <?php endif; ?>
-
-	    <?php if ($params->get('show_email_icon')) : ?>
-	        <li class="email-icon">
-	            <?php echo JHtml::_('icon.email',  $this->item, $params); ?>
-	        </li>
-	    <?php endif; ?>
-
-	    <?php if ($canEdit) : ?>
-	        <li class="edit-icon">
-	            <?php echo JHtml::_('icon.edit', $this->item, $params); ?>
-	        </li>
-	    <?php endif; ?>
-
-	    <?php else : ?>
-	        <li>
-	            <?php echo JHtml::_('icon.print_screen',  $this->item, $params); ?>
-	        </li>
-	    <?php endif; ?>
-    </ul>
+	<?php if ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit) : ?>
+		<ul class="actions">
+			<?php if ($params->get('show_print_icon')) : ?>
+			<li class="print-icon">
+				<?php echo JHtml::_('icon.print_popup', $this->item, $params); ?>
+			</li>
+			<?php endif; ?>
+			<?php if ($params->get('show_email_icon')) : ?>
+			<li class="email-icon">
+				<?php echo JHtml::_('icon.email', $this->item, $params); ?>
+			</li>
+			<?php endif; ?>
+			<?php if ($canEdit) : ?>
+			<li class="edit-icon">
+				<?php echo JHtml::_('icon.edit', $this->item, $params); ?>
+			</li>
+			<?php endif; ?>
+		</ul>
 	<?php endif; ?>
 
 <?php if ($header) : ?>
@@ -168,7 +159,7 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
 <?php if ($params->get('access-view')):?>
 <?php  if (isset($images->image_fulltext) and !empty($images->image_fulltext)) : ?>
 	<?php $imgfloat = (empty($images->float_fulltext)) ? $params->get('float_fulltext') : $images->float_fulltext; ?>
-	<img class="img-fulltext-<?php echo htmlspecialchars($imgfloat); ?>"
+	<img class="img-fulltext <?php echo htmlspecialchars($imgfloat); ?>"
 	<?php if ($images->image_fulltext_caption):
 		echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) .'"';
 	endif; ?>
