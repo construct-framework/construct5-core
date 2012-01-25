@@ -7,13 +7,14 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
+JHtml::_('behavior.tooltip');
+JHtml::core();
+
 // Create a shortcut for params.
 $params		= &$this->item->params;
 $images 	= json_decode($this->item->images);
 $canEdit	= $this->item->params->get('access-edit');
-JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
-JHtml::_('behavior.tooltip');
-JHtml::core();
 $details    = $params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits');
 $header     = $details + $this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category');
 ?>
@@ -47,7 +48,6 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
 	    <?php endif; ?>
     </h2>
 	<?php endif; ?>
-
 
     <?php  if (!$params->get('show_intro')) :
 	    echo $this->item->event->afterDisplayTitle;
@@ -192,4 +192,3 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
 <?php endif; ?>
 
 <?php echo $this->item->event->afterDisplayContent;
-
