@@ -40,10 +40,6 @@ foreach ($list as $i => &$item) :
 		}
 	}
 
-	if ($item->deeper) {
-		$class .= ' deeper';
-	}
-
 	if ($item->parent) {
 		$class .= ' parent';
 	}
