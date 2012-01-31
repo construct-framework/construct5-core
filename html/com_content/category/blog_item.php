@@ -16,7 +16,7 @@ $params		= &$this->item->params;
 $images 	= json_decode($this->item->images);
 $canEdit	= $this->item->params->get('access-edit');
 $details    = $params->get('show_parent_category') + $params->get('show_category') + $params->get('show_create_date') + $params->get('show_modify_date') + $params->get('show_publish_date') + ($params->get('show_author') && !empty($this->item->author )) + $params->get('show_hits');
-$header     = $details + $this->params->get('show_page_heading') + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category');
+$header     = $details + $params->get('show_title') + $params->get('show_parent_category') + $params->get('show_category');
 ?>
 
 	<?php if ($this->item->state == 0) : ?>
@@ -30,12 +30,6 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
     <?php if ($header > 1) : ?>
     <hgroup>
     <?php endif; ?>
-
-	<?php if ($this->params->get('show_page_heading', 1)) : ?>
-    <h1>
-	    <?php echo htmlspecialchars($this->params->get('page_heading')); ?>
-    </h1>
-	<?php endif; ?>
 
 	<?php if ($params->get('show_title')) : ?>
     <h2>
