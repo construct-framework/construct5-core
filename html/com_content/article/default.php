@@ -57,11 +57,11 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
 	</h3>
     <?php endif; ?>
 
-    <?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
+    <?php if ($params->get('show_parent_category') && $this->item->parent_id != '1:root') : ?>
     <h3 class="parent-category-name">
         <?php	$title = $this->escape($this->item->parent_title);
-        $url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
-        <?php if ($params->get('link_parent_category') AND $this->item->parent_slug) : ?>
+        $url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_id)).'">'.$title.'</a>';?>
+        <?php if ($params->get('link_parent_category') AND $this->item->parent_id) : ?>
             <?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
         <?php else : ?>
             <?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>

@@ -28,10 +28,10 @@ $header = $this->params->get('show_page_heading', 1) + ($this->params->get('show
     <?php endif; ?>
 
     <?php if ($this->params->get('show_category_title', 1) || $this->params->get('page_subheading')) : ?>
-    <h2>
+	<h2 class="subheading-category">
         <?php echo htmlspecialchars($this->params->get('page_subheading')); ?>
         <?php if ($this->params->get('show_category_title')) : ?>
-	        <span class="subheading-category"><?php echo $this->category->title;?></span>
+	        <?php echo $this->category->title;?>
         <?php endif; ?>
     </h2>
     <?php endif; ?>
