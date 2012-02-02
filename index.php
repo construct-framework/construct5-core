@@ -28,8 +28,13 @@ if(JFile::exists($mdetectFile)) {
 // Layout override
 $results = $layoutOverride->getIncludeFile ();
 
+// Check if mobile device has opted for desktop version
+if(isset($_GET['viewDesktop'])){
+	$_SESSION['viewDesktop']=$_GET['viewDesktop'];
+}
+
 // Check if mobile device detection is turned on and, test if visitor is a mobile device, and if so, load mobile sub-template
-if (  $isMobile  ||  $isTablet ) {
+if (($isMobile  ||  $isTablet) && (!isset($_SESSION['viewDesktop']))) {
 	if(JFile::exists($mTemplate)) {
 	 	include_once $mTemplate;
 	}
