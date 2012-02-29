@@ -45,13 +45,12 @@ JHtml::_('behavior.modal');
 
 // Remove MooTools. Careful, 3PD extensions may rely on MooTools.
 /*
-	$head=$this->getHeadData();
-	reset($head['scripts']);
-	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools.js']);
-	unset($head['scripts'][$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
-	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-core.js']);
-	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);		
-	$this->setHeadData($head);
+unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools-core.js']);
+unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools-more.js']);
+unset($doc->_scripts[$this->baseurl.'/media/system/js/core.js']);
+unset($doc->_scripts[$this->baseurl.'/media/system/js/caption.js']);
+unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools.js']);
+unset($doc->_scripts[$this->baseurl.'/plugins/system/mtupgrade/mootools.js']);
 */
 
 #----------------------------- Moldule Counts -----------------------------#
