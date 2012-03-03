@@ -455,11 +455,7 @@ body {
     font-family: Helvetica,Arial,FreeSans,sans-serif;
 }
 
-a,
-a:link,
-a:visited,
-a:focus,
-a:active {
+a {
     text-decoration: none;
 }
 
@@ -1237,9 +1233,7 @@ header {
     margin: 0;
 }
 
-#logo a:link,
-#logo a:visited,
-#logo a:hover {
+#logo a {
     background: url(../images/logo.png) 0 0 no-repeat;
     display: block;
     width: 300px;
