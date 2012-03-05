@@ -7,9 +7,7 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-//Access template parameters
-$templateParams = JFactory::getApplication()->getTemplate(true)->params;
-$outputType = $templateParams->get('coreOutput');
+JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 ?>
 
 <section class="category-list<?php echo $this->pageclass_sfx;?>">
