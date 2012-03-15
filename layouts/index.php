@@ -266,7 +266,7 @@
 							<?php if ($this->countModules('column-1')) : ?>
 								<div id="column-1" class="<?php echo $columnGroupAlphaClass ?>">
 									<div class="gutter clearfix">
-										<jdoc:include type="modules" name="column-1" style="div" level="6" />
+										<jdoc:include type="modules" name="column-1" style="div" />
 									</div><!--end gutter -->
 								</div><!-- end column-1 -->
 							<?php endif ?>
