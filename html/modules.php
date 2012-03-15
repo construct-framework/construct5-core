@@ -9,16 +9,16 @@
 ?>
 
 <?php function modChrome_div( $module, &$params, &$attribs ) {
-	
-	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 5;
+
+	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 3;
 	$headerClass = isset($attribs['header-class']) ? $attribs['header-class'] : 'je-header';
 	$moduleClass = isset($attribs['module-class']) ? $attribs['module-class'] : null;
 	if (!empty($module->content)){ ?>
-		<div class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">		
+		<div class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">
 			<?php if ($module->showtitle) : ?>
 				<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
 			<?php endif; ?>
-			<?php echo $module->content; ?>	
+			<?php echo $module->content; ?>
 		</div>
 
 <?php	}
@@ -26,7 +26,7 @@
 ?>
 
 <?php function modChrome_aside( $module, &$params, &$attribs ) {
-	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 4;
+	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 3;
 	$headerClass = isset($attribs['header-class']) ? $attribs['header-class'] : 'je-header';
 	$moduleClass = isset($attribs['module-class']) ? $attribs['module-class'] : null;
 	if (!empty($module->content))
@@ -39,11 +39,11 @@
 		</aside>
 
 <?php	}
-	}			
+	}
 ?>
 
 <?php function modChrome_figure( $module, &$params, &$attribs ) {
-	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 4;
+	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 3;
 	$headerClass = isset($attribs['header-class']) ? $attribs['header-class'] : 'je-header';
 	$moduleClass = isset($attribs['module-class']) ? $attribs['module-class'] : null;
 	if (!empty($module->content))
@@ -56,11 +56,11 @@
 		</figure>
 
 <?php	}
-	}			
+	}
 ?>
 
 <?php function modChrome_footer( $module, &$params, &$attribs ) {
-	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 5;
+	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 3;
 	$headerClass = isset($attribs['header-class']) ? $attribs['header-class'] : 'je-header';
 	$moduleClass = isset($attribs['module-class']) ? $attribs['module-class'] : null;
 	if (!empty($module->content))
@@ -73,7 +73,7 @@
 		</footer>
 
 <?php	}
-	}			
+	}
 ?>
 
 <?php function modChrome_header( $module, &$params, &$attribs ) {
@@ -90,7 +90,7 @@
 		</header>
 
 <?php	}
-	}			
+	}
 ?>
 
 <?php function modChrome_nav( $module, &$params, &$attribs ) {
@@ -107,7 +107,7 @@
 		</nav>
 
 <?php	}
-	}			
+	}
 ?>
 
 <?php function modChrome_section( $module, &$params, &$attribs ) {
@@ -124,5 +124,6 @@
 		</section>
 
 <?php	}
-	}			
+	}
 ?>
+
