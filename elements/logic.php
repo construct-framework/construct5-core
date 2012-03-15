@@ -14,14 +14,12 @@ if (JFile::exists(dirname(__FILE__).'/helper.php')) {
 
 // To enable use of site configuration
 $app 					= JFactory::getApplication();
-// Get the base URL of the website
-$baseUrl 				= JURI::base();
 // Returns a reference to the global document object
 $doc 					= JFactory::getDocument();
 // Define relative path to the  current template directory
-$template 				= 'templates/'.$this->template;
+$template 				= 'templates/' . $this->template;
 // Define absolute path to the template directory
-$templateDir			= JPATH_THEMES.'/'.$this->template;
+$templateDir			= JPATH_THEMES.'/' . $this->template;
 // Get the current URL
 $url 					= clone(JURI::getInstance());
 // To access the current user object
@@ -45,12 +43,18 @@ JHtml::_('behavior.modal');
 
 // Remove MooTools. Careful, 3PD extensions may rely on MooTools.
 /*
-unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools-core.js']);
-unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools-more.js']);
-unset($doc->_scripts[$this->baseurl.'/media/system/js/core.js']);
-unset($doc->_scripts[$this->baseurl.'/media/system/js/caption.js']);
-unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools.js']);
-unset($doc->_scripts[$this->baseurl.'/plugins/system/mtupgrade/mootools.js']);
+// Joomla 2.5
+unset($doc->_scripts[$this->baseurl . '/media/system/js/mootools-core.js']);
+unset($doc->_scripts[$this->baseurl . '/media/system/js/mootools-more.js']);
+unset($doc->_scripts[$this->baseurl . '/media/system/js/core.js']);
+unset($doc->_scripts[$this->baseurl . '/media/system/js/caption.js']);
+unset($doc->_scripts[$this->baseurl . '/media/system/js/modal.js']);
+$this->_script['text/javascript'] = preg_replace('%window\.addEvent\(\'load\',\s*function\(\)\s*{\s*new\s*JCaption\(\'img.caption\'\);\s*}\);\s*%', '', $this->_script['text/javascript']);
+$this->_script['text/javascript'] = preg_replace('%window\.addEvent\(\'domready\',\s*function\(\)\s*{\s*SqueezeBox.initialize\({}\);\s*SqueezeBox\.assign\(\$\$\(\'a.modal\'\)\,\s*{\s*parse:\s*\'rel\'\s*}\);\s*}\);\s*%', '',$this->_script['text/javascript']);
+
+// Joomla 1.5
+unset($doc->_scripts[$this->baseurl . '/media/system/js/mootools.js']);
+unset($doc->_scripts[$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
 */
 
 #----------------------------- Moldule Counts -----------------------------#
@@ -148,7 +152,7 @@ $columnGroupBetaCount = $column3Count + $column4Count;
 if ($columnGroupBetaCount) : $columnGroupBetaClass = 'count-'.$columnGroupBetaCount; endif;
 
 $columnLayout= 'main-only';
-	
+
 if (($columnGroupAlphaCount > 0 ) && ($columnGroupBetaCount == 0)) :
 	$columnLayout = 'alpha-'.$columnGroupAlphaCount.'-main';
 elseif (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount > 0)) :
@@ -156,14 +160,14 @@ elseif (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount > 0)) :
 elseif (($columnGroupAlphaCount == 0) && ($columnGroupBetaCount > 0)) :
 	$columnLayout = 'main-beta-'.$columnGroupBetaCount;
 endif;
-	
+
 #-------------------------------- Item ID ---------------------------------#
 
 $itemId = JRequest::getInt('Itemid', 0);
 
 #------------------------------- Article ID -------------------------------#
 
-if ($view == 'article') 
+if ($view == 'article')
 $articleId = JRequest::getInt('id');
 else ($articleId = NULL);
 
@@ -176,32 +180,32 @@ function getCategory($id) {
 		}
 	  elseif((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
 			return $id;
-		}		
+		}
 	  elseif(JRequest::getCmd('view', 0) == "article") {
 			$temp = explode(":",$id);
 			$sql = "SELECT catid FROM #__content WHERE id = ".$temp[0];
 			$database->setQuery( $sql );
 			return $database->loadResult();
-		}		
+		}
 	}
-	
+
 $catId = getCategory(JRequest::getInt('id'));
 
 #------------------------- Ancestor Category IDs --------------------------#
 
 	function getParentCategory($id) {
-		$database = JFactory::getDBO();	
-		$sql = "SELECT parent_id 
-		FROM #__categories 
+		$database = JFactory::getDBO();
+		$sql = "SELECT parent_id
+		FROM #__categories
 		WHERE id = $id";
 		$database->setQuery( $sql );
 		return $database->loadResult();
 	}
-	
+
 	$parentCategory = getParentCategory($catId);
 
 	function getAncestorCategories($id) {
-		$database = JFactory::getDBO();	
+		$database = JFactory::getDBO();
 		$sql = "SELECT b.id, b.title
 		FROM #__categories a,
 		#__categories b
@@ -213,7 +217,7 @@ $catId = getCategory(JRequest::getInt('id'));
 		$database->setQuery( $sql );
 		return $database->loadObjectList();
 	}
-	
+
 
 #--------------------------------- Alias ----------------------------------#
 
@@ -235,14 +239,14 @@ $styleOverride->includeFile[] 				= $template.'/css/article/article-'.$articleId
 $styleOverride->includeFile[] 				= $template.'/css/article/article.css';
 $styleOverride->includeFile[] 				= $template.'/css/item/item-'.$itemId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/category/category-'.$catId.'.css';
-$styleOverride->includeFile[] 				= $template.'/css/category/category-'.$parentCategory.'.css';	
+$styleOverride->includeFile[] 				= $template.'/css/category/category-'.$parentCategory.'.css';
 $results 									= getAncestorCategories($catId);
 if (count($results) > 0) {
-	foreach ($results as $result) {			
+	foreach ($results as $result) {
 		$styleOverride->includeFile[]	 	= $template.'/css/category/category-'.$result->id.'.css';
 	}
-}				
-if ($view == 'category') {						
+}
+if ($view == 'category') {
 	$styleOverride->includeFile[] 			= $template.'/css/category/category.css';
 }
 if ($view == 'categories') {
@@ -267,26 +271,26 @@ $layoutOverride 							= new ConstructTemplateHelper ();
 
 $layoutOverride->includeFile 				= array ();
 
-$layoutOverride->includeFile[] 				= $template.'/layouts/article/article-'.$articleId.'.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/article/article.php';	
-$layoutOverride->includeFile[] 				= $template.'/layouts/item/item-'.$itemId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/article/article-'.$articleId.'.php';
+$layoutOverride->includeFile[] 				= $template.'/layouts/article/article.php';
+$layoutOverride->includeFile[] 				= $template.'/layouts/item/item-'.$itemId.'.php';
 $layoutOverride->includeFile[] 				= $template.'/layouts/category/category-'.$catId.'.php';
-$layoutOverride->includeFile[] 				= $template.'/layouts/category/category-'.$parentCategory.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/category/category-'.$parentCategory.'.php';
 
 $results 									= getAncestorCategories($catId);
 if (count($results) > 0) {
-	foreach ($results as $result) {			
+	foreach ($results as $result) {
 		$layoutOverride->includeFile[]	 	= $template.'/layouts/category/category-'.$result->id.'.php';
 	}
-}				
+}
 
-if ($view == 'category') {						
+if ($view == 'category') {
 	$layoutOverride->includeFile[] 			= $template.'/layouts/category/category.php';
 }
 if ($view == 'categories') {
 	$layoutOverride->includeFile[]			= $template.'/layouts/category/categories.php';
 }
-$layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$currentComponent.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$currentComponent.'.php';
 $layoutOverride->includeFile[] 				= $template.'/layouts/index.php';
 
 #---------------Mobile Extended Template Layout Overrides--------------------#
@@ -341,7 +345,7 @@ $doc->addCustomTag("\n".'  <script type="text/javascript">window.addEvent(\'domr
 $doc->addCustomTag("\n".'  <!--[if lt IE 9]>');
 $doc->addCustomTag("\n".'  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>');
 // Targeted CSS3 Support
-// $doc->addCustomTag("\n".'  <style type="text/css"> /* list elements here */  {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
+// $doc->addCustomTag("\n".'  <style type="text/css"> /* list elements here */  {behavior:url("'. $this->baseurl . '/templates/'. $this->template .'/js/PIE.htc")}</style>');
 
 $doc->addCustomTag('<![endif]-->');
 
@@ -363,3 +367,4 @@ $doc->addCustomTag("\n".'  </style>');
 $doc->addCustomTag("\n".'  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
 $doc->addCustomTag("\n".'  <script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
 $doc->addCustomTag('<![endif]-->');
+
