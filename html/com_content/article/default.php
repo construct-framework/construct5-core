@@ -110,7 +110,6 @@ $header     = $details + $this->params->get('show_page_heading') + $params->get(
     <?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
     <?php
         $needle = 'index.php?option=com_contact&view=contact&id=' . $this->item->contactid;
-        $item = JSite::getMenu()->getItems('link', $needle, true);
 		$menu = JFactory::getApplication()->getMenu();
 		$item = $menu->getItems('link', $needle, true);
         $cntlink = !empty($item) ? $needle . '&Itemid=' . $item->id : $needle;

@@ -142,9 +142,10 @@ endif;
 		    <div class="formelm">
 		    <?php echo $this->form->getLabel('catid'); ?>
 		    <span class="category">
-			<?php   echo $this->form->getInput('catid'); ?>
+			<?php echo $this->form->getInput('catid'); ?>
 		    </span>
 			</div>
+			
 			<div class="formelm">
 			<?php echo $this->form->getLabel('created_by_alias'); ?>
 			<?php echo $this->form->getInput('created_by_alias'); ?>
