@@ -138,16 +138,12 @@ endif;
 		<?php endif; ?>
 
 		<fieldset>
-			<legend><?php echo JText::_('COM_CONTENT_PUBLISHING'); ?></legend>
-			<div class="formelm">
-			<?php echo $this->form->getLabel('catid'); ?>
-			<?php if($this->params->get('enable_category', 0) == 1) : ?>
-			<span class="category">
-			<?php echo $this->category_title; ?>
-			</span>
-			<?php else : ?>
-			<?php echo $this->form->getInput('catid', null, $this->item->catid); ?>
-			<?php endif;?>
+		    <legend><?php echo JText::_('COM_CONTENT_PUBLISHING'); ?></legend>
+		    <div class="formelm">
+		    <?php echo $this->form->getLabel('catid'); ?>
+		    <span class="category">
+			<?php   echo $this->form->getInput('catid'); ?>
+		    </span>
 			</div>
 			<div class="formelm">
 			<?php echo $this->form->getLabel('created_by_alias'); ?>
@@ -214,3 +210,4 @@ endif;
 		</fieldset>
 	</form>
 </section>
+
