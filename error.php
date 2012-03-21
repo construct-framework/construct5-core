@@ -105,17 +105,17 @@ else {
 
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2); ?>"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo substr($this->language, 0, 2); ?>"> <!--<![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2) ?>"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2) ?>"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2) ?>"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo substr($this->language, 0, 2) ?>"> <!--<![endif]-->
 <head>
   <meta name="copyright" content="<?php echo htmlspecialchars($app->getCfg('sitename'));?>" />
-  <link rel="shortcut icon" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/css/screen.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/css/overrides.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/css/print.css" type="text/css" media="print" />
+  <link rel="shortcut icon" href="<?php echo $baseUrl.'templates/'.$this->template ?>/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="<?php echo $baseUrl.'templates/'.$this->template ?>/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/screen.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/overrides.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/print.css" type="text/css" media="print" />
 <?php if ($enableSwitcher) {
   echo '  <link rel="alternate stylesheet" href="templates/'.$this->template.'/css/diagnostic.css" type="text/css" title="diagnostic"/>
   <link rel="alternate stylesheet" href="templates/'.$this->template.'/css/wireframe.css" type="text/css" title="wireframe"/>';
@@ -155,11 +155,11 @@ else {
   echo '  <script type="text/javascript" src="'.$baseUrl.'/templates/'.$this->template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>
   <script>DD_belatedPNG.fix(\''.$IE6TransFixTargets.'\');</script>'."\n";
 } ?>
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/css/ie6.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/ie6.css" type="text/css" media="screen" />
   <style type="text/css">
   body {text-align:center}
   #body-container{text-align:left}
-  #body-container, #header-above<?php if (!$fullWidth) echo ',#header, #footer'; ?>{width: expression( document.body.clientWidth > <?php echo ($siteWidth -1); ?> ? "<?php echo $siteWidth.$siteWidthUnit; ?>" : "auto" );margin:0 auto}
+  #body-container, #header-above<?php if (!$fullWidth) echo ',#header, #footer' ?>{width: expression( document.body.clientWidth > <?php echo ($siteWidth -1) ?> ? "<?php echo $siteWidth.$siteWidthUnit ?>" : "auto" );margin:0 auto}
   </style>
 <![endif]-->
 <?php if ($useStickyFooter) {
@@ -175,10 +175,10 @@ else {
   <style type="text/css">'.$IECSS3Targets.'"{behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc)</style>
   <![endif]-->';
 }
-echo "\n"; ?>
+echo "\n" ?>
 </head>
 
-<body class="<?php echo $columnLayout; ?> error">
+<body class="<?php echo $columnLayout ?> error">
 	<div id="footer-push">
 		<?php if ($headerAboveClass) : ?>
 			<div id="header-above" class="clearfix">
@@ -201,17 +201,17 @@ echo "\n"; ?>
 					<?php echo $renderer->render('header-above-6', $jexhtml, null);  ?>
 				</div>
 			</div>
-		<?php endif; ?>
+		<?php endif ?>
 
 		<header id="header" class="clear clearfix">
 			<div class="gutter">
 
 
 				<div class="date-container">
-					<span class="date-weekday"><?php	$now = &JFactory::getDate(); echo $now->toFormat('%A').','; ?></span>
-					<span class="date-month"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%B'); ?></span>
-					<span class="date-day"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%d').','; ?></span>
-					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y'); ?></span>
+					<span class="date-weekday"><?php	$now = &JFactory::getDate(); echo $now->toFormat('%A').',' ?></span>
+					<span class="date-month"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%B') ?></span>
+					<span class="date-day"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%d').',' ?></span>
+					<span class="date-year"><?php 		$now = &JFactory::getDate(); echo $now->toFormat('%Y') ?></span>
 				</div>
 
 
@@ -222,9 +222,9 @@ echo "\n"; ?>
 			    <nav>
 				    <ul id="access">
 					    <li>Jump to:</li>
-					    <li><a href="<?php echo $baseUrl; ?>index.php#content" class="to-content">Content</a></li>
-					    <li><a href="<?php echo $baseUrl; ?>index.php#nav" class="to-nav">Navigation</a></li>
-					    <li><a href="<?php echo $baseUrl; ?>index.php#additional" class="to-additional">Additional Information</a></li>
+					    <li><a href="<?php echo $baseUrl ?>index.php#content" class="to-content">Content</a></li>
+					    <li><a href="<?php echo $baseUrl ?>index.php#nav" class="to-nav">Navigation</a></li>
+					    <li><a href="<?php echo $baseUrl ?>index.php#additional" class="to-additional">Additional Information</a></li>
 				    </ul>
 			    </nav>
 
@@ -234,7 +234,7 @@ echo "\n"; ?>
 						<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
 						<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
 					</ul>
-				<?php endif; ?>
+				<?php endif ?>
 
 			</div><!-- end gutter -->
 		</header><!-- end header -->
@@ -261,7 +261,7 @@ echo "\n"; ?>
 							<?php echo $renderer->render('header-below-6', $jexhtml, null);  ?>
 						</div><!-- end header-below-6 -->
 				</div><!-- end header-below -->
-			<?php endif; ?>
+			<?php endif ?>
 
 			<?php echo $renderer->render('breadcrumbs', $raw, null);  ?>
 
@@ -291,7 +291,7 @@ echo "\n"; ?>
 							<?php echo $renderer->render('nav-below-6', $jexhtml, null);  ?>
 						</div><!-- end nav-below-6 -->
 					</div>
-				<?php endif; ?>
+				<?php endif ?>
 
 				<div id="load-first" class="clearfix">
 					<div id="content-main">
@@ -317,29 +317,29 @@ echo "\n"; ?>
 										<?php echo $renderer->render('content-above-6', $jexhtml, null);  ?>
 									</div><!-- end content-above-6 -->
 								</div>
-							<?php endif; ?>
+							<?php endif ?>
 
 							<div id="error-message">
-								<?php echo $this->error->getCode(); ?> - <?php echo $this->error->getMessage(); ?>
-								<p><strong><?php echo JText::_('You may not be able to visit this page because of:'); ?></strong></p>
+								<?php echo $this->error->getCode() ?> - <?php echo $this->error->getMessage() ?>
+								<p><strong><?php echo JText::_('You may not be able to visit this page because of:') ?></strong></p>
 									<ol>
-										<li><?php echo JText::_('An out-of-date bookmark/favourite'); ?></li>
-										<li><?php echo JText::_('A search engine that has an out-of-date listing for this site'); ?></li>
-										<li><?php echo JText::_('A mis-typed address'); ?></li>
-										<li><?php echo JText::_('You have no access to this page'); ?></li>
-										<li><?php echo JText::_('The requested resource was not found'); ?></li>
-										<li><?php echo JText::_('An error has occurred while processing your request.'); ?></li>
+										<li><?php echo JText::_('An out-of-date bookmark/favourite') ?></li>
+										<li><?php echo JText::_('A search engine that has an out-of-date listing for this site') ?></li>
+										<li><?php echo JText::_('A mis-typed address') ?></li>
+										<li><?php echo JText::_('You have no access to this page') ?></li>
+										<li><?php echo JText::_('The requested resource was not found') ?></li>
+										<li><?php echo JText::_('An error has occurred while processing your request.') ?></li>
 									</ol>
-								<p><strong><?php echo JText::_('Please try one of the following pages:'); ?></strong></p>
+								<p><strong><?php echo JText::_('Please try one of the following pages:') ?></strong></p>
 								<ul>
-									<li><a href="<?php echo $this->baseurl; ?>/" title="<?php echo JText::_('Go to the home page'); ?>"><?php echo JText::_('Home Page'); ?></a></li>
+									<li><a href="<?php echo $this->baseurl ?>/" title="<?php echo JText::_('Go to the home page') ?>"><?php echo JText::_('Home Page') ?></a></li>
 								</ul>
-								<p><?php echo JText::_('If difficulties persist, please contact the system administrator of this site.'); ?></p>
-								<p><?php echo $this->error->getMessage(); ?></p>
+								<p><?php echo JText::_('If difficulties persist, please contact the system administrator of this site.') ?></p>
+								<p><?php echo $this->error->getMessage() ?></p>
 								<p>
 									<?php if($this->debug) :
 										echo $this->renderBacktrace();
-									endif; ?>
+									endif ?>
 								</p>
 							</div>
 							<?php if ($contentBelowClass) : ?>
@@ -363,7 +363,7 @@ echo "\n"; ?>
 										<?php echo $renderer->render('content-below-6', $jexhtml, null);  ?>
 									</div><!-- end content-below-6 -->
 								</div>
-							<?php endif; ?>
+							<?php endif ?>
 						</div><!-- end gutter -->
 					</div><!-- end content-main -->
 					<?php if ($columnGroupAlphaClass) : ?>
@@ -377,7 +377,7 @@ echo "\n"; ?>
 								</div><!-- end column-2 -->
 							</div><!--end gutter -->
 						</div><!-- end column-group-alpha -->
-					<?php endif; ?>
+					<?php endif ?>
 				</div><!--end load-first-->
 
 					<?php if ($columnGroupBetaClass) : ?>
@@ -391,7 +391,7 @@ echo "\n"; ?>
 								</div><!-- end column-4 -->
 							</div><!--end gutter -->
 						</div><!-- end column-group-beta -->
-					<?php endif; ?>
+					<?php endif ?>
 
 				<?php if ($footerAboveClass) : ?>
 					<div id="footer-above" class="clearfix">
@@ -414,14 +414,14 @@ echo "\n"; ?>
 							<?php echo $renderer->render('footer-above-6', $jexhtml, null);  ?>
 						</div><!-- end footer-above-6 -->
 					</div><!-- end footer-above -->
-				<?php endif; ?>
+				<?php endif ?>
 			</div><!-- end content-container -->
 		</section><!-- end body-container -->
 	</div><!-- end footer-push -->
 
 	<footer id="footer" class="clear clearfix">
 		<div class="gutter clearfix">
-			<a id="to-page-top" href="<?php echo $baseurl; ?>index.php#page-top">Back to Top</a>
+			<a id="to-page-top" href="<?php echo $baseurl ?>index.php#page-top">Back to Top</a>
 			<?php echo $renderer->render('syndicate', $jexhtml, null);  ?>
 			<?php echo $renderer->render('footer', $jexhtml, null);  ?>
 		</div><!--end gutter -->
