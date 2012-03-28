@@ -53,10 +53,6 @@ unset($doc->_scripts[$this->baseurl . '/media/system/js/caption.js']);
 unset($doc->_scripts[$this->baseurl . '/media/system/js/modal.js']);
 $this->_script['text/javascript'] = preg_replace('%window\.addEvent\(\'load\',\s*function\(\)\s*{\s*new\s*JCaption\(\'img.caption\'\);\s*}\);\s*%', '', $this->_script['text/javascript']);
 $this->_script['text/javascript'] = preg_replace('%window\.addEvent\(\'domready\',\s*function\(\)\s*{\s*SqueezeBox.initialize\({}\);\s*SqueezeBox\.assign\(\$\$\(\'a.modal\'\)\,\s*{\s*parse:\s*\'rel\'\s*}\);\s*}\);\s*%', '',$this->_script['text/javascript']);
-
-// Joomla 1.5
-unset($doc->_scripts[$this->baseurl . '/media/system/js/mootools.js']);
-unset($doc->_scripts[$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
 */
 
 #----------------------------- Moldule Counts -----------------------------#
