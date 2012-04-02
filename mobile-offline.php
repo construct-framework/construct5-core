@@ -16,7 +16,6 @@ if(JFile::exists($template.'/layouts/mobile-offline.php')) {
 }
 else {
 ?>
-
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
@@ -69,7 +68,7 @@ else {
 				<input type="hidden" name="return" value="<?php echo base64_encode(JURI::base()) ?>" />
 				<?php echo JHtml::_('form.token') ?>
 			</fieldset>
-			</form>						
+			</form>
 			
 		</div>
 		
@@ -78,7 +77,7 @@ else {
 				<jdoc:include type="modules" name="nav" style="raw" />
 			</div><!-- end nav-->
 		<?php endif ?>
-									
+
 		<div id="footer" data-role="footer" data-theme="<?php echo $mFooterDataTheme ?>">
 			<a class="view-desktop" href="<?php echo JURI::current() ?>?viewDesktop=true">View Desktop Version</a>
 			<?php if ($this->countModules('footer')) : ?>
@@ -86,7 +85,11 @@ else {
 			<?php endif ?>
 		</div>
 	</div>
-	  
+
+	<?php if ($this->countModules('analytics')) : ?>
+		<jdoc:include type="modules" name="analytics" />
+	<?php endif ?>
+
 </body>
 </html>
 <?php }

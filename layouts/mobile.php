@@ -17,7 +17,7 @@
 		<?php //Load Mobile Extended Template Style Overrides
 		$mobileCssFile = $mobileStyleOverride->getIncludeFile ();
 		if ($mobileCssFile) : ?>
-			<link rel="stylesheet" href="<?php echo $this->baseurl.$mobileCssFile ?>" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?php echo $this->baseurl.$mobileCssFile ?>" type="text/css" media="screen" />
 		<?php endif ?>
 		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 		<script>(function($) {$(document).bind("mobileinit", function() {$.mobile.ajaxEnabled = false;});})(jQuery);</script>
@@ -26,67 +26,30 @@
 	</head>
 
 <body>
+	<div data-role="page" data-theme="b">
+		<header id="header" data-role="header">
+			<h1><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')) ?>"><?php echo $app->getCfg('sitename') ?></a></h1>
+		</header>
 
-	<div data-role="page" data-theme="<?php echo $mPageDataTheme ?>">
+		<nav id="nav" data-role="navuigation">
+			<jdoc:include type="modules" name="nav" style="raw" />
+		</nav>
 
-		<div id="header" data-role="header" data-theme="<?php echo $mHeaderDataTheme ?>">
-
-			<h1><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')) ?>"><?php echo htmlspecialchars($app->getCfg('sitename')) ?></a></h1>
-
-				<?php if ($showDiagnostics) : ?>
-					<ul id="diagnostics">
-					    <li>layout override</li>
-					    <li>column layout <?php echo $columnLayout ?></li>
-						<li>component <?php echo $currentComponent ?></li>
-					    <?php if($view)			echo '<li>'.$view.' view</li>' ?>
-					    <?php if($articleId)	echo '<li>article '.$articleId.'</li>' ?>
-					    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>' ?>
-					    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>' ?>
-					    <?php if($catId)   		echo '<li>category '.$catId.'</li>' ?>
-					    <?php if ($catId && ($inheritStyle || $inheritLayout)) {
-					    		if ($parentCategory) {
-					    		    echo '<li>parent category '.$parentCategory.'</li>';
-					    		}
-					    		$results = getAncestorCategories($catId);
-							    if ($results) {
-							        echo '<li>ancestor categories';
-								        if (count($results) > 0) {
-									        foreach ($results as $item) {
-										        echo ' '.$item->id.' ';
-									        }
-								        }
-							        echo'</li>';
-							    }
-							  } ?>
-				    </ul>
-				<?php endif ?>
-		</div>
-
-		<?php if ( $mNavPosition && ($this->countModules('nav'))) : ?>
-			<div id="nav">
-				<jdoc:include type="modules" name="nav" style="raw" />
-			</div><!-- end nav-->
-		<?php endif ?>
-
-		<div id="content-container" data-role="content" data-theme="<?php echo $mContentDataTheme ?>">
+		<section id="content-container" data-role="main">
 			<?php if ($this->getBuffer('message')) : ?>
 					<jdoc:include type="message" />
 			<?php endif ?>
 			<jdoc:include type="component" />
-		</div>
+		</section>
 
-		<?php if ( !$mNavPosition && ($this->countModules('nav'))) : ?>
-			<div id="nav">
-				<jdoc:include type="modules" name="nav" style="raw" />
-			</div><!-- end nav-->
-		<?php endif ?>
+		<footer id="footer" data-role="footer">
 
-		<div id="footer" data-role="footer" data-theme="<?php echo $mFooterDataTheme ?>">
 			<a class="view-desktop" href="<?php echo JURI::current() ?>?viewDesktop=true">View Desktop Version</a>
+
 			<?php if ($this->countModules('footer')) : ?>
 				<jdoc:include type="modules" name="footer" style="xhtml" />
 			<?php endif ?>
-		</div>
+		</footer>
 	</div>
 
 	<?php if ($this->countModules('analytics')) : ?>

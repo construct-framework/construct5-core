@@ -14,7 +14,8 @@ if ($mobileResults) {
 	$alternateIndexFile = $mobileResults;
 	include_once $alternateIndexFile;
 } else {
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html class="no-js">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
