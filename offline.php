@@ -324,7 +324,7 @@ else {
 								<?php if ($messageQueue) : ?>
 									<jdoc:include type="message" />
 								<?php endif ?>
-																
+
 								<h3><?php echo $app->getCfg('offline_message') ?></h3>
 								<?php if(JPluginHelper::isEnabled('authentication', 'openid')) : ?>
 								<?php JHtml::_('script', 'openid.js') ?>
