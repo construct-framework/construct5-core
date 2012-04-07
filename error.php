@@ -102,67 +102,11 @@ else {
   <link rel="shortcut icon" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/favicon.ico" type="image/x-icon" />
   <link rel="icon" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/favicon.png" type="image/png" />
   <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/css/screen.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/css/print.css" type="text/css" media="print" />
-<?php if ($enableSwitcher) {
-  echo '  <link rel="alternate stylesheet" href="templates/'. $this->template .'/css/diagnostic.css" type="text/css" title="diagnostic"/>
-  <link rel="alternate stylesheet" href="templates/'. $this->template .'/css/wireframe.css" type="text/css" title="wireframe"/>';
-} ?>  
-<?php	
-	if ($customStyleSheet !='-1')
-		echo '<link rel="stylesheet" href="'. $this->baseurl . '/templates/'. $this->template .'/css/'.$customStyleSheet.'"  type="text/css" media="screen" />';
-	if ($gridSystem !='-1')
-		echo '<link rel="stylesheet" href="'. $this->baseurl . '/templates/'. $this->template .'/css/grids/'.$gridSystem.'"  type="text/css" media="screen" />';
-	if ($this->direction == 'rtl')
-		echo '<link rel="stylesheet" href="'. $this->baseurl . '/templates/'. $this->template .'/css/rtl.css"  type="text/css" media="screen" />';
-	if (isset($cssFile))
-		echo "\n".$cssFile;
-	if ($googleWebFont != "")
-		echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$googleWebFont.'">
-		<style type="text/css">'.$googleWebFontTargets.'{font-family:'.$googleWebFont.', serif !important;font-size:'.$googleWebFontSize.'} </style>';
-	if ($googleWebFont2 != "")
-		echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$googleWebFont2.'">
-		<style type="text/css">'.$googleWebFontTargets2.'{font-family:'.$googleWebFont2.', serif !important;font-size:'.$googleWebFontSize2.'} </style>';
-	if ($googleWebFont3 != "")
-		echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$googleWebFont3.'">
-		<style type="text/css">'.$googleWebFontTargets3.'{font-family:'.$googleWebFont3.', serif !important;font-size:'.$googleWebFontSize3.'} </style>';
-	if ($loadjQuery != "")
-		$doc->addScript("http://ajax.googleapis.com/ajax/libs/jquery/'.$loadjQuery.'/jquery.min.js");
-	if ($enableSwitcher)
-		echo '<script type="text/javascript" src="'. $this->baseurl . '/templates/'. $this->template .'/js/styleswitch.js"></script>';
-	if ($siteWidth)
-		echo '<style type="text/css"> #body-container, #header-above {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.' !important}</style>';
-	if (!$fullWidth)
-		echo '<style type="text/css"> #header, #footer {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.';margin:0 auto}</style>';
-	if (($siteWidthType == 'max-width') && $fluidMedia )
-		echo '<style type="text/css"> img, object {max-width:100%}</style>';
-?>  
-  <script type="text/javascript">window.addEvent('domready',function(){new SmoothScroll({duration:1200},window);});</script>
-  <!--[if lt IE 7]>
-<?php if ($IE6TransFix) {
-  echo '  <script type="text/javascript" src="'. $this->baseurl . '/templates/'. $this->template .'/js/DD_belatedPNG_0.0.8a-min.js"></script>
-  <script>DD_belatedPNG.fix(\''.$IE6TransFixTargets.'\');</script>'."\n";
-} ?>
-  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/css/ie6.css" type="text/css" media="screen" />
-  <style type="text/css">
-  body {text-align:center}
-  #body-container{text-align:left}
-  #body-container, #header-above<?php if (!$fullWidth) echo ',#header, #footer' ?>{width: expression( document.body.clientWidth > <?php echo ($siteWidth -1) ?> ? "<?php echo $siteWidth.$siteWidthUnit ?>" : "auto" );margin:0 auto}
-  </style>
-<![endif]-->  
-<?php if ($useStickyFooter) {
-	echo '  <style type="text/css">.sticky-footer #body-container{padding-bottom:'.$stickyFooterHeight.'px;}
-  .sticky-footer #footer{margin-top:-'.$stickyFooterHeight.'px;height:'.$stickyFooterHeight.'px;}
-  </style>
-  <!--[if !IE 7]>
-  <style type="text/css">.sticky-footer #footer-push {display:table;height:100%}</style>
-  <![endif]-->';
-} ?>
-<?php if ($IECSS3) {
-  echo '  <!--[if !IE 9]>
-  <style type="text/css">'.$IECSS3Targets.'"{behavior:url("'. $this->baseurl . '/templates/'. $this->template .'/js/PIE.htc)</style>
-  <![endif]-->';
-}
-echo "\n" ?>
+  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/css/grids/construct.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/css/custom.css" type="text/css" media="screen" />
+  <!--[if lt IE 9]>
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 
 <body class="<?php echo $columnLayout ?> error">
@@ -192,7 +136,6 @@ echo "\n" ?>
 		
 		<header id="header" class="clear clearfix">
 			<div class="gutter">
-
 				
 				<div class="date-container">
 					<span class="date-weekday"><?php	$now = JFactory::getDate(); echo $now->toFormat('%A').',' ?></span>
@@ -200,7 +143,6 @@ echo "\n" ?>
 					<span class="date-day"><?php 		$now = JFactory::getDate(); echo $now->toFormat('%d').',' ?></span>
 					<span class="date-year"><?php 		$now = JFactory::getDate(); echo $now->toFormat('%Y') ?></span>
 				</div>
-				
 			
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')) ?>"><?php echo $this->baseurl ?></a></h1>
 				

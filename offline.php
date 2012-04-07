@@ -53,7 +53,7 @@ else {
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; if($sectionId) echo ' section-'.$sectionId ?>">
+<body class="<?php echo $columnLayout . ' sticky-footer'; echo ' ' . $currentComponent; if($itemId) echo ' ' . $currentAlias; if($articleId) echo ' article-' . $articleId; if($itemId) echo ' item-' . $itemId; if($catId) echo ' category-' . $catId ?>">
 
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
@@ -285,7 +285,7 @@ else {
 										    <jdoc:include type="modules" name="offline" style="jexhtml" />
 								    <?php endif ?>
 					      
-								    <?php if ($this->getBuffer('message')) : ?>
+								    <?php if ($messageQueue) : ?>
 									    <jdoc:include type="message" />
 								    <?php endif ?>
 
@@ -321,7 +321,7 @@ else {
 										<jdoc:include type="modules" name="offline" style="jexhtml" />
 								<?php endif ?>
 					  
-								<?php if ($this->getBuffer('message')) : ?>
+								<?php if ($messageQueue) : ?>
 									<jdoc:include type="message" />
 								<?php endif ?>
 																

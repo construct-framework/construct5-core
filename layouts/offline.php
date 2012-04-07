@@ -17,7 +17,7 @@
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; if($sectionId) echo ' section-'.$sectionId ?>">
+<body class="<?php echo $columnLayout . ' sticky-footer'; echo ' ' . $currentComponent; if($itemId) echo ' ' . $currentAlias; if($articleId) echo ' article-' . $articleId; if($itemId) echo ' item-' . $itemId; if($catId) echo ' category-' . $catId ?>">
 
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
@@ -66,34 +66,6 @@
 					<span class="date-year"><?php 		$now = JFactory::getDate(); echo $now->toFormat('%Y') ?></span>
 				</div>
 				
-				<?php if ($showDiagnostics) : ?>
-				<ul id="diagnostics">
-					<li>layout override</li>				
-					<li>column layout <?php echo $columnLayout ?></li>
-					<li>component <?php echo $currentComponent ?></li>
-					<?php if($view)			echo '<li>'.$view.' view</li>' ?>
-					<?php if($articleId)	echo '<li>article '.$articleId.'</li>' ?>
-					<?php if($itemId)		echo '<li>menu item '.$itemId.'</li>' ?>
-					<?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>' ?>
-					<?php if($catId)   		echo '<li>category '.$catId.'</li>' ?>
-					<?php if ($catId && ($inheritStyle || $inheritLayout)) {
-							if ($parentCategory) {
-								echo '<li>parent category '.$parentCategory.'</li>';
-							}
-							$results = getAncestorCategories($catId);
-							if ($results) {
-								echo '<li>ancestor categories';
-									if (count($results) > 0) {
-										foreach ($results as $item) {
-											echo ' '.$item->id.' ';
-										}			
-									}								
-								echo'</li>';
-							}
-						  } ?>
-				</ul>
-				<?php endif ?>
-				
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')) ?>"><?php echo htmlspecialchars($app->getCfg('sitename')) ?></a></h1>
 				
 				<?php if ($this->countModules('header')) : ?>
@@ -113,12 +85,10 @@
 					</ul>
 				</nav>
 				
-				<?php if ($enableSwitcher) : ?>
 				<ul id="style-switch">
 					<li class="narrow"><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
 					<li class="wide"><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
 				</ul>
-				<?php endif ?>
 
 			</div>
 		</header>
@@ -255,7 +225,7 @@
 										    <jdoc:include type="modules" name="offline" style="jexhtml" />
 								    <?php endif ?>
 					      
-								    <?php if ($this->getBuffer('message')) : ?>
+								    <?php if ($messageQueue) : ?>
 									    <jdoc:include type="message" />
 								    <?php endif ?>
 
@@ -291,7 +261,7 @@
 										<jdoc:include type="modules" name="offline" style="jexhtml" />
 								<?php endif ?>
 					  
-								<?php if ($this->getBuffer('message')) : ?>
+								<?php if ($messageQueue) : ?>
 									<jdoc:include type="message" />
 								<?php endif ?>
 																

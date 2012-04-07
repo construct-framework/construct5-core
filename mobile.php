@@ -38,21 +38,19 @@ if ($mobileResults) {
 			<h1><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')) ?>"><?php echo $app->getCfg('sitename') ?></a></h1>
 		</header>
 
-		<nav id="nav" data-role="navuigation">
+		<nav id="nav" data-role="navigation">
 			<jdoc:include type="modules" name="nav" style="raw" />
 		</nav>
 
 		<section id="content-container" data-role="main">
-			<?php if ($this->getBuffer('message')) : ?>
+			<?php if ($messageQueue) : ?>
 					<jdoc:include type="message" />
 			<?php endif ?>
 			<jdoc:include type="component" />
 		</section>
 
 		<footer id="footer" data-role="footer">
-
 			<a class="view-desktop" href="<?php echo JURI::current() ?>?viewDesktop=true">View Desktop Version</a>
-
 			<?php if ($this->countModules('footer')) : ?>
 				<jdoc:include type="modules" name="footer" style="xhtml" />
 			<?php endif ?>

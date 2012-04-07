@@ -29,20 +29,17 @@ else {
 	</head>
 
 <body>
-	<div data-role="page" data-theme="<?php echo $mPageDataTheme ?>">
-		<div id="header" data-role="header" data-theme="<?php echo $mHeaderDataTheme ?>">
+	<div data-role="page" data-theme="b">
+		<header id="header" data-role="header">
 			<h1><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')) ?>"><?php echo $app->getCfg('sitename') ?></a></h1>
-		</div>
+		</header>
 	
-		<?php if ( $mNavPosition && ($this->countModules('nav'))) : ?>
-			<div id="nav">
-				<jdoc:include type="modules" name="nav" style="raw" />
-			</div>
-		<?php endif ?>
+		<nav id="nav" data-role="navigation">
+			<jdoc:include type="modules" name="nav" style="raw" />
+		</nav>
 		
-		<div id="content-container" data-role="content" data-theme="<?php echo $mContentDataTheme ?>">
-	
-			<?php if ($this->getBuffer('message')) : ?>
+		<section id="content-container" data-role="main">
+			<?php if ($messageQueue) : ?>
 				<jdoc:include type="message" />
 			<?php endif ?>
 			<p>
@@ -69,21 +66,14 @@ else {
 				<?php echo JHtml::_('form.token') ?>
 			</fieldset>
 			</form>
-			
-		</div>
-		
-		<?php if ( !$mNavPosition && ($this->countModules('nav'))) : ?>
-			<div id="nav">
-				<jdoc:include type="modules" name="nav" style="raw" />
-			</div>
-		<?php endif ?>
+		</section>
 
-		<div id="footer" data-role="footer" data-theme="<?php echo $mFooterDataTheme ?>">
+		<footer id="footer" data-role="footer">
 			<a class="view-desktop" href="<?php echo JURI::current() ?>?viewDesktop=true">View Desktop Version</a>
 			<?php if ($this->countModules('footer')) : ?>
 				<jdoc:include type="modules" name="footer" style="xhtml" />
 			<?php endif ?>
-		</div>
+		</footer>
 	</div>
 
 	<?php if ($this->countModules('analytics')) : ?>

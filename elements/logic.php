@@ -368,4 +368,3 @@ $doc->addCustomTag('</style>');
 $doc->addCustomTag('<script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
 $doc->addCustomTag('<script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
 $doc->addCustomTag('<![endif]-->');
-

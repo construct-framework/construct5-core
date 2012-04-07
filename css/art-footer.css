@@ -1,0 +1,158 @@
+/* begin Footer */
+.art-footer
+{
+   position: relative;
+   margin-top:0;
+   margin-bottom:0;
+   width: 100%;
+}
+
+.art-footer-body
+{
+   position:relative;
+   padding: 5px;
+   color: #C7B299;
+   font-size: 11px;
+}
+
+.art-footer-body ul li
+{
+   color: #4D4D4D;
+   padding: 0 0 0 13px;
+   background-image: url('../images/footerbullets.png');
+   background-repeat: no-repeat;
+   background-position: top left;
+}
+
+.art-footer-body:before
+{
+   position: absolute;
+   content:' ';
+   z-index:-2;
+   left:0;
+   right:0;
+   top:0;
+   bottom:0;
+   background-color: #f1f1f1;
+/*   background-image: url('../images/footer.png');
+   background-position:bottom left;*/
+}
+
+.art-footer-body .art-rss-tag-icon
+{
+   position: absolute;
+   left:   -6px;
+   bottom:0;
+   z-index:1;
+}
+
+.art-rss-tag-icon
+{
+   display: block;
+   background-image: url('../images/livemarks.png');
+   background-repeat: no-repeat;
+   height: 32px;
+   cursor: default;
+   background-position: left;
+   padding-left: 32px;
+   width: auto;
+   line-height: 32px;
+   font-size: 11px;
+}
+
+.art-footer-text p
+{
+   padding:0;
+   margin:0;
+   text-align: center;
+}
+
+.art-footer-body a,
+.art-footer-body a:link,
+.art-footer-body a:visited,
+.art-footer-body a:hover,
+.art-footer-body td,
+.art-footer-body th,
+.art-footer-body caption
+{
+   color: #C7B299;
+   font-size: 11px;
+}
+
+.art-footer-text
+{
+   min-height: 32px;
+   padding-left: 42px;
+   padding-right: 42px;
+   position: relative;
+   float: left;
+   left: 50%;
+   text-align: center;
+}
+
+.art-footer-body a,
+.art-footer-body a:link
+{
+   color: #A00810;
+/*   text-decoration: none;*/
+}
+
+.art-footer-body a:visited
+{
+   color: #545454;
+}
+
+.art-footer-body a:hover
+{
+   color: #F4252F;
+/*   text-decoration: underline;*/
+}
+
+.art-footer-center
+{
+   position: relative;
+   float: right;
+   right: 50%;
+}
+
+div.art-footer img
+{
+   /* WARNING do NOT collapse this to 'border' - inheritance! */
+  border-width: 0;
+   margin: 0;
+}
+
+.art-rss-tag-icon span
+{
+   padding-left: .5em;
+}
+/* end Footer */
+
+/* begin PageFooter */
+.art-page-footer,
+.art-page-footer a,
+.art-page-footer a:link,
+.art-page-footer a:visited,
+.art-page-footer a:hover
+{
+   font-family: Arial;
+   font-size: 10px;
+   letter-spacing: normal;
+   word-spacing: normal;
+   font-style: normal;
+   font-weight: normal;
+/*   text-decoration: underline;*/
+   color: #D50B15;
+}
+
+.art-page-footer
+{
+   position: relative;
+   z-index: 10;
+   padding: 1em;
+   text-align: center;
+/*   text-decoration: none;*/
+   color: #545454;
+}
+/* end PageFooter */
+
