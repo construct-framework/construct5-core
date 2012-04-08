@@ -104,18 +104,19 @@ else {
 ?>
 
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2) ?>"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2) ?>"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2) ?>"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo substr($this->language, 0, 2) ?>"> <!--<![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="<?php echo substr($this->language, 0, 2) ?>" dir="<?php echo $this->direction ?>"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="<?php echo substr($this->language, 0, 2) ?>" dir="<?php echo $this->direction ?>"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="<?php echo substr($this->language, 0, 2) ?>" dir="<?php echo $this->direction ?>"> <![endif]-->
+<!--[if gt IE 8]> <!--> <html class="no-js" lang="<?php echo substr($this->language, 0, 2) ?>" dir="<?php echo $this->direction ?>"> <!--<![endif]-->
 <head>
   <meta name="copyright" content="<?php echo htmlspecialchars($app->getCfg('sitename'));?>" />
-  <link rel="shortcut icon" href="<?php echo $baseUrl.'templates/'.$this->template ?>/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="<?php echo $baseUrl.'templates/'.$this->template ?>/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/screen.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/overrides.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/print.css" type="text/css" media="print" />
+  <link rel="shortcut icon" href="<?php echo $this->baseurl .'templates/'.$this->template ?>/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="<?php echo $this->baseurl .'templates/'.$this->template ?>/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="<?php echo $this->baseurl .'templates/'.$this->template ?>/css/screen.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $this->baseurl .'templates/'.$this->template ?>/css/overrides.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/css/grids/construct.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $this->baseurl . '/templates/' . $this->template ?>/css/custom.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $this->baseurl .'templates/'.$this->template ?>/css/print.css" type="text/css" media="print" />
 <?php if ($enableSwitcher) {
   echo '  <link rel="alternate stylesheet" href="templates/'.$this->template.'/css/diagnostic.css" type="text/css" title="diagnostic"/>
   <link rel="alternate stylesheet" href="templates/'.$this->template.'/css/wireframe.css" type="text/css" title="wireframe"/>';
@@ -155,7 +156,7 @@ else {
   echo '  <script type="text/javascript" src="'.$baseUrl.'/templates/'.$this->template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>
   <script>DD_belatedPNG.fix(\''.$IE6TransFixTargets.'\');</script>'."\n";
 } ?>
-  <link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template ?>/css/ie6.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo $this->baseurl .'templates/'.$this->template ?>/css/ie6.css" type="text/css" media="screen" />
   <style type="text/css">
   body {text-align:center}
   #body-container{text-align:left}
@@ -421,7 +422,7 @@ echo "\n" ?>
 
 	<footer id="footer" class="clear clearfix">
 		<div class="gutter clearfix">
-			<a id="to-page-top" href="<?php echo $baseurl ?>index.php#page-top">Back to Top</a>
+			<a id="to-page-top" href="<?php echo $baseUrl ?>index.php#page-top">Back to Top</a>
 			<?php echo $renderer->render('syndicate', $jexhtml, null);  ?>
 			<?php echo $renderer->render('footer', $jexhtml, null);  ?>
 		</div><!--end gutter -->

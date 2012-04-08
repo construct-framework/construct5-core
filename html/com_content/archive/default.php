@@ -26,6 +26,6 @@
 		<input type="hidden" name="view" value="archive" />
 		<input type="hidden" name="option" value="com_content" />
 		<input type="hidden" name="viewcache" value="0" />
-	<fieldset>
+	</fieldset>
 	<?php echo $this->loadTemplate('items'); ?>
 </form>
