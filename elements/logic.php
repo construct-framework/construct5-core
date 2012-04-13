@@ -324,10 +324,10 @@ $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon
 // Style sheets
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
-// $doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
 
 // Sample style sheets
-$doc->addStyleSheet($template.'/css/dark.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/light.css','text/css','screen');
 
 if ($this->direction == 'rtl') {
 	$doc->addStyleSheet($template.'/css/rtl.css','text/css','screen');
@@ -368,3 +368,4 @@ $doc->addCustomTag('</style>');
 $doc->addCustomTag('<script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
 $doc->addCustomTag('<script type="text/javascript">DD_belatedPNG.fix(\'h1 a\');</script>');
 $doc->addCustomTag('<![endif]-->');
+

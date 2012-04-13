@@ -208,7 +208,7 @@ elseif ($results) {
 			<div id="content-container" class="clear clearfix">
 
 				<?php if ($navBelowCount) : ?>
-					<nav id="nav-below" class="clearfix">
+					<div id="nav-below" class="clearfix">
 						<?php if ($this->countModules('nav-below-1')) : ?>
 							<div id="nav-below-1" class="<?php echo $navBelowClass ?>">
 								<jdoc:include type="modules" name="nav-below-1" style="div" module-class="gutter" />
@@ -244,7 +244,7 @@ elseif ($results) {
 								<jdoc:include type="modules" name="nav-below-6" style="div" module-class="gutter" />
 							</div>
 						<?php endif ?>
-					</nav>
+					</div>
 				<?php endif ?>
 
 				<div id="load-first" class="clearfix">

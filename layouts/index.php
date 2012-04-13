@@ -17,7 +17,7 @@
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout . ' sticky-footer'; echo ' ' . $currentComponent; if($itemId) echo ' ' . $currentAlias; if($articleId) echo ' article-' . $articleId; if($itemId) echo ' item-' . $itemId; if($catId) echo ' category-' . $catId ?>">
+<body class="<?php echo $columnLayout .' '.  $currentComponent; if($itemId) echo ' ' . $currentAlias; if($articleId) echo ' article-' . $articleId; if($itemId) echo ' item-' . $itemId; if($catId) echo ' category-' . $catId ?>">
 
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
@@ -128,7 +128,7 @@
 			<div id="content-container" class="clear clearfix">
 
 				<?php if ($navBelowCount) : ?>
-					<nav id="nav-below" class="clearfix">
+					<div id="nav-below" class="clearfix">
 						<?php if ($this->countModules('nav-below-1')) : ?>
 							<div id="nav-below-1" class="<?php echo $navBelowClass ?>">
 								<jdoc:include type="modules" name="nav-below-1" style="div" module-class="gutter" />
@@ -164,7 +164,7 @@
 								<jdoc:include type="modules" name="nav-below-6" style="div" module-class="gutter" />
 							</div>
 						<?php endif ?>
-					</nav>
+					</div>
 				<?php endif ?>
 
 				<div id="load-first" class="clearfix">
