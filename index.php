@@ -34,7 +34,7 @@ if(isset($_GET['viewDesktop'])){
 }
 
 // Check if mobile device detection is turned on and, test if visitor is a mobile device, and if so, load mobile sub-template
-if (($isMobile  ||  $isTablet) && (!isset($_SESSION['viewDesktop']))) {
+if (($isMobile) && (!isset($_SESSION['viewDesktop']))) {
 	if(JFile::exists($mTemplate)) {
 	 	include_once $mTemplate;
 	}
