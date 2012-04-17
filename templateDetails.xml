@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
 <extension version="1.6" type="template" client="site" method="upgrade">
 	<name>construct5-core</name>
-	<creationDate>April 6, 2012</creationDate>
+	<creationDate>April 17th, 2012</creationDate>
 	<author>Cristina Solana | Matt Thomas</author>
 	<authorEmail>support@construct-framework.com</authorEmail>
 	<authorUrl>http://construct-framework.com</authorUrl>
@@ -10,29 +10,45 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>∞</version>
 	<description><![CDATA[
-		<style type="text/css">
-			.panel {background: #ddd;
-			background-image: -moz-linear-gradient(100% 100% 90deg, rgba(225,225,225,1), rgba(255,255,255,1));
-			background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,1)), to(rgba(225,225,225,1)));
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd');
-			-moz-border-radius: 2px 12px 2px 2px;
-			-webkit-border-radius: 2px 12px 2px 2px;
-			border-radius: 2px 12px 2px 2px;
-			-moz-box-shadow: 1px 1px 2px #ddd;
-			-webkit-box-shadow: 1px 1px 2px #ddd;
-			border-box-shadow: 1px 1px 2px #ddd;
-			border: 1px solid #ccc;
-			padding: 6px 10px;
-			color: #444;
-			text-decoration: none;}
-			table.admintable td.paramlist_key {font-weight:normal;text-transform:uppercase;text-align:left;}
-			table.admintable td.paramlist_value label {text-transform:none;}
-			table.admintable td.key, table.admintable td.paramlist_key,.pane-sliders .content,.pane-sliders .panel h3, div.panel fieldset {background:none;}
-			div.panel fieldset {margin-bottom:0;padding-bottom:0;}
-			table.admintable td.key, table.admintable td.paramlist_key {border:none;}
-		</style>
-		<a href="http://construct-framework.com/" target="_blank"><img src="http://construct-framework.com/images/logo.png"></a>
-		<p>For more information and support, visit <a href="http://construct-framework.com/" target="_blank">Construct Framework</a></p>
+    <style type="text/css">
+	    .panel,
+	     fieldset.adminform {
+            background-color: #ffffff;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e1e1e1));
+            background-image: -webkit-linear-gradient(top, #ffffff, #e1e1e1);
+            background-image:    -moz-linear-gradient(top, #ffffff, #e1e1e1);
+            background-image:     -ms-linear-gradient(top, #ffffff, #e1e1e1);
+            background-image:      -o-linear-gradient(top, #ffffff, #e1e1e1);
+            background-image:         linear-gradient(to bottom, #ffffff, #e1e1e1);
+            -webkit-border-radius:  2px 12px 2px 2px;
+            -moz-border-radius:     2px 12px 2px 2px;
+            border-radius:          2px 12px 2px 2px;
+            -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+            -webkit-box-shadow: 1px 1px 1px 2px #eee;
+            -moz-box-shadow:    1px 1px 1px 2px #eee;
+            box-shadow:         1px 1px 1px 2px #eee;
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            color: #444;
+            text-decoration: none;
+	    }
+	    .panel label {
+	        font-weight:normal;
+	        text-align:left;
+	    }
+	    .pane-sliders .content,
+        .pane-sliders .panel h3,
+	    fieldset.adminform input,
+	    .pane-sliders .panel fieldset {
+	        background:none;
+	    }
+	    .pane-sliders .panel fieldset {
+	        margin-bottom:0;
+	        padding-bottom:0;
+	    }
+    </style>
+	<a href="http://construct-framework.com/" target="_blank"><img src="http://construct-framework.com/images/logo.png"></a>
+	<p style="clear:left;">For more information and support, visit <a href="http://construct-framework.com/" target="_blank">Construct Framework</a></p>
 	]]></description>
 	<files>
 		<filename>css/article/index.html</filename>
