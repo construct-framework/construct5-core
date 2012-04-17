@@ -8,7 +8,7 @@
 	<authorUrl>http://construct-framework.com</authorUrl>
 	<copyright>Copyright (C) 2009 - 2012 Matt Thomas. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>∞</version>
+	<version>2.5.10</version>
 	<description><![CDATA[
     <style type="text/css">
 	    .panel,
@@ -72,6 +72,7 @@
 		<filename>elements/index.html</filename>
 		<filename>elements/logic.php</filename>
 		<filename>elements/mdetect.php</filename>
+		<filename>element/upgradecheck.php</filename>
 		<folder>html</folder>
 		<filename>images/index.html</filename>
 		<filename>images/selector-arrow.png</filename>
@@ -153,6 +154,14 @@
 		<position>offline</position>
 		<position>syndicate</position>
 	</positions>
+
+	<config>
+		<fields name="params">
+			<fieldset name="Basic" addfieldpath="/templates/construct5-core/elements" >
+				<field label="Version" type="upgradecheck" />
+			</fieldset>
+		</fields>
+	</config>
 
 </extension>
 
