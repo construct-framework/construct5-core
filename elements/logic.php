@@ -323,7 +323,7 @@ $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon
 
 // Style sheets
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
-$doc->addStyleSheet($template.'/css/grids/holygrail.css','text/css','screen');
+$doc->addStyleSheet($template.'/css/grids/construct.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/custom.css','text/css','screen');
 
 if ($this->direction == 'rtl') {
