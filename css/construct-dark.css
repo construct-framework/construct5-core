@@ -28,16 +28,16 @@ a {
 	border-bottom:1px dashed #1A61AE;
 }
 
-header a,
-footer a,
+#header a,
+#footer a,
 .pagenav a,
 .breadcrumbs a {
 	color:#1A61AE;
 	border-bottom:none;
 }
 
-header a:hover,
-footer a:hover,
+#header a:hover,
+#footer a:hover,
 .pagenav a:hover,
 .breadcrumbs a:hover {
 	color:#F57E20;
@@ -49,15 +49,15 @@ a:hover,
 }
 
 a:active,
-header a:active,
-footer a:active,
+#header a:active,
+#footer a:active,
 .pagenav a:active,
 .buttons li a:active,
 .breadcrumbs a:active {
 	color: #0AA34A;
 }
 
-header .wrap {
+#header .wrap {
 	max-width: 95em;
 	margin:0 auto;
 }
@@ -202,14 +202,14 @@ input.button:active {
 	padding:3px 2px 0 2px;
 }
 
-footer {
+#footer {
 	border-top:1px solid #e6e2da;
 	width:100%;
 	color:#fff;
 	background-color: #010101;
 }
 
-footer .gutter {
+#footer .gutter {
 	width 100%;
 	padding:1em 0 0 0;
 	margin: 0;

@@ -32,8 +32,8 @@ a:hover {
 	border-bottom:1px dashed #F57E20;
 }
 
-header a,
-footer a,
+#header a,
+#footer a,
 .pagenav a,
 .breadcrumbs a {
 	color:#1A61AE;
@@ -50,15 +50,15 @@ a:hover,
 }
 
 a:active,
-header a:active,
-footer a:active,
+#header a:active,
+#footer a:active,
 .pagenav a:active,
 .buttons li a:active,
 .breadcrumbs a:active {
 	color: #0AA34A;
 }
 
-header .wrap {
+#header .wrap {
 	max-width: 95em;
 	margin:0 auto;
 }
@@ -205,7 +205,7 @@ input.button:active {
 	padding:3px 2px 0 2px;
 }
 
-footer {
+#footer {
 	-webkit-box-shadow: 0px -4px 8px #666;
 	-moz-box-shadow: 0px -4px 8px #666;
 	box-shadow: 0px -4px 8px #666;
@@ -214,7 +214,7 @@ footer {
 	border-top:2px solid #1A61AE;
 }
 
-footer .gutter {
+#footer .gutter {
 	width 100%;
 	padding:1em 0 0 0;
 	margin: 0;
