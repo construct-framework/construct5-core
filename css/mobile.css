@@ -165,11 +165,22 @@ ul{
 }
 
 /* -- Responsive Layouts -- */
-.min-width-768px.landscape #content-container{
-	float:right;
-	width:74%;
+
+#nav {
+	width:100%;
 }
-.min-width-768px.landscape #nav{
-	float:left;
-	width:19%;
+
+/* iPad Landscape Only */
+
+@media only screen and (min-width: 769px) {
+
+	#content-container{
+		float:right;
+		width:73%;
+	}
+
+	#nav{
+		float:left;
+		width:19%;
+	}
 }
