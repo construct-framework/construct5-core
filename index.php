@@ -292,7 +292,7 @@ elseif ($results) {
 								</div>
 							<?php endif ?>
 
-							<?php if ($messageQueue) : ?>
+							<?php if (!empty($messageQueue)) : ?>
 								<jdoc:include type="message" />
 							<?php endif ?>
 

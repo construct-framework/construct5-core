@@ -285,7 +285,7 @@ else {
 										    <jdoc:include type="modules" name="offline" style="jexhtml" />
 								    <?php endif ?>
 					      
-								    <?php if ($messageQueue) : ?>
+								    <?php if (!empty($messageQueue)) : ?>
 									    <jdoc:include type="message" />
 								    <?php endif ?>
 
@@ -321,7 +321,7 @@ else {
 										<jdoc:include type="modules" name="offline" style="jexhtml" />
 								<?php endif ?>
 					  
-								<?php if ($messageQueue) : ?>
+								<?php if (!empty($messageQueue)) : ?>
 									<jdoc:include type="message" />
 								<?php endif ?>
 

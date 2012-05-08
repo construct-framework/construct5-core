@@ -40,7 +40,7 @@ else {
 		</nav>
 		
 		<section id="content-container" data-role="main">
-			<?php if ($messageQueue) : ?>
+			<?php if (!empty($messageQueue)) : ?>
 				<jdoc:include type="message" />
 			<?php endif ?>
 			<p>
