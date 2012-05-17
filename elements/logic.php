@@ -319,7 +319,7 @@ $doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
 // Style sheet combination and minification
-// $doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
+z// $doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
 
 // Style sheets
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
