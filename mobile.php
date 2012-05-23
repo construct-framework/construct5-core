@@ -37,11 +37,8 @@ if ($mobileResults) {
 	<div data-role="page" data-theme="b">
 		<header id="header" data-role="header">
 			<h1><a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename')) ?>"><?php echo $app->getCfg('sitename') ?></a></h1>
+			<a href="<?php echo JURI::current() ?>#nav" data-ajax="false">Menu</a>
 		</header>
-
-		<nav id="nav" data-role="navigation">
-			<jdoc:include type="modules" name="nav" style="raw" />
-		</nav>
 
 		<section id="content-container" data-role="main">
 			<?php if (!empty($messageQueue)) : ?>
@@ -49,6 +46,10 @@ if ($mobileResults) {
 			<?php endif ?>
 			<jdoc:include type="component" />
 		</section>
+
+		<nav id="nav" data-role="navigation">
+			<jdoc:include type="modules" name="nav" style="raw" />
+		</nav>
 
 		<footer id="footer" data-role="footer">
 			<a class="view-desktop" href="<?php echo JURI::current() ?>?viewDesktop=true">View Desktop Version</a>
