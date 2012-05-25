@@ -45,7 +45,7 @@ div {
 
 	* .gutter, #column-group-alpha .gutter, #column-group-beta .gutter {
 		margin : 0;
-	}
+	};
 }
 
 @media only screen and (max-width: 600px) {
@@ -74,7 +74,7 @@ div {
 
 	* .gutter, #column-group-beta .gutter {
 		margin : 0;
-	}
+	};
 }
 
 @media only screen and (max-width: 768px) {
@@ -91,7 +91,7 @@ div {
 
 	* .gutter {
 		margin : 0;
-	}
+	};
 }
 
 /* =============================================================================
@@ -368,10 +368,10 @@ div {
 
 	.alpha-2-main-beta-2 #content-main {
 		width : 67%;
-	}
+	};
 }
 
 /* 2x */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
-
+;
 }

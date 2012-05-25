@@ -23,7 +23,7 @@ class JFormFieldUpgradecheck extends JFormField
 		//If cURL is supported, check the current version available.
 		else
 			$version = 11;
-		$target = 'http://construct-framework.com/upgradecheck/construct5.2.5-core';
+		$target = 'http://construct-framework.com/upgradecheck/construct5-core-2-5';
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $target);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
