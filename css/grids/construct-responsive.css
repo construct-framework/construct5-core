@@ -65,6 +65,10 @@
 		content : "min 40em - ";
 	}/* end diagnostic code */
 
+	.count-1 {
+		float: left;
+	}
+
 	.count-2,
 	.count-3,
 	.count-4,
