@@ -9,7 +9,7 @@
 
 // Call the Construct Template Helper Class
 if (JFile::exists(dirname(__FILE__) . '/helper.php')) {
-	include dirname(__FILE__) . '/helper.php';
+    include dirname(__FILE__) . '/helper.php';
 }
 
 // To get an application object
@@ -152,11 +152,11 @@ if ($columnGroupBetaCount) : $columnGroupBetaClass = 'count-' . $columnGroupBeta
 $columnLayout = 'main-only';
 
 if (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount == 0)) :
-	$columnLayout = 'alpha-' . $columnGroupAlphaCount . '-main';
+    $columnLayout = 'alpha-' . $columnGroupAlphaCount . '-main';
 elseif (($columnGroupAlphaCount > 0) && ($columnGroupBetaCount > 0)) :
-	$columnLayout = 'alpha-' . $columnGroupAlphaCount . '-main-beta-' . $columnGroupBetaCount;
+    $columnLayout = 'alpha-' . $columnGroupAlphaCount . '-main-beta-' . $columnGroupBetaCount;
 elseif (($columnGroupAlphaCount == 0) && ($columnGroupBetaCount > 0)) :
-	$columnLayout = 'main-beta-' . $columnGroupBetaCount;
+    $columnLayout = 'main-beta-' . $columnGroupBetaCount;
 endif;
 
 #-------------------------------- Item ID ---------------------------------#
@@ -166,26 +166,26 @@ $itemId = JRequest::getInt('Itemid', 0);
 #------------------------------- Article ID -------------------------------#
 
 if ($view == 'article')
-	$articleId = JRequest::getInt('id');
+    $articleId = JRequest::getInt('id');
 else ($articleId = NULL);
 
 #------------------------------ Category ID -------------------------------#
 
 function getCategory($id)
 {
-	$database = JFactory::getDBO();
-	if (JRequest::getCmd('view', 0) == "section") {
-		return null;
-	}
-	elseif ((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
-		return $id;
-	}
-	elseif (JRequest::getCmd('view', 0) == "article") {
-		$temp = explode(":", $id);
-		$sql = "SELECT catid FROM #__content WHERE id = " . $temp[0];
-		$database->setQuery($sql);
-		return $database->loadResult();
-	}
+    $database = JFactory::getDBO();
+    if (JRequest::getCmd('view', 0) == "section") {
+        return null;
+    }
+    elseif ((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
+        return $id;
+    }
+    elseif (JRequest::getCmd('view', 0) == "article") {
+        $temp = explode(":", $id);
+        $sql = "SELECT catid FROM #__content WHERE id = " . $temp[0];
+        $database->setQuery($sql);
+        return $database->loadResult();
+    }
 }
 
 $catId = getCategory(JRequest::getInt('id'));
@@ -194,35 +194,35 @@ $catId = getCategory(JRequest::getInt('id'));
 
 function getParentCategory($id)
 {
-	$database = JFactory::getDBO();
-	$sql = "SELECT parent_id
-		FROM #__categories
-		WHERE id = $id";
-	$database->setQuery($sql);
-	return $database->loadResult();
+    $database = JFactory::getDBO();
+    $sql = "SELECT parent_id
+        FROM #__categories
+        WHERE id = $id";
+    $database->setQuery($sql);
+    return $database->loadResult();
 }
 
 $parentCategory = getParentCategory($catId);
 
 function getAncestorCategories($id)
 {
-	$database = JFactory::getDBO();
-	$sql = "SELECT b.id, b.title
-		FROM #__categories a,
-		#__categories b
-		WHERE a.id = $id
-		AND a.lft > b.lft
-		AND a.rgt < b.rgt
-		AND a.id <> b.id
-		AND b.lft > 0";
-	$database->setQuery($sql);
-	return $database->loadObjectList();
+    $database = JFactory::getDBO();
+    $sql = "SELECT b.id, b.title
+        FROM #__categories a,
+        #__categories b
+        WHERE a.id = $id
+        AND a.lft > b.lft
+        AND a.rgt < b.rgt
+        AND a.id <> b.id
+        AND b.lft > 0";
+    $database->setQuery($sql);
+    return $database->loadObjectList();
 }
 
 #--------------------------------- Alias ----------------------------------#
 
 if ($itemId) {
-	$currentAlias = $app->getMenu()->getActive()->alias;
+    $currentAlias = $app->getMenu()->getActive()->alias;
 }
 
 #----------------------------- Component Name -----------------------------#
@@ -242,15 +242,15 @@ $styleOverride->includeFile[] = $template . '/css/category/category-' . $catId .
 $styleOverride->includeFile[] = $template . '/css/category/category-' . $parentCategory . '.css';
 $results = getAncestorCategories($catId);
 if (count($results) > 0) {
-	foreach ($results as $result) {
-		$styleOverride->includeFile[] = $template . '/css/category/category-' . $result->id . '.css';
-	}
+    foreach ($results as $result) {
+        $styleOverride->includeFile[] = $template . '/css/category/category-' . $result->id . '.css';
+    }
 }
 if ($view == 'category') {
-	$styleOverride->includeFile[] = $template . '/css/category/category.css';
+    $styleOverride->includeFile[] = $template . '/css/category/category.css';
 }
 if ($view == 'categories') {
-	$styleOverride->includeFile[] = $template . '/css/category/categories.css';
+    $styleOverride->includeFile[] = $template . '/css/category/categories.css';
 }
 $styleOverride->includeFile[] = $template . '/css/component/' . $currentComponent . '.css';
 
@@ -279,16 +279,16 @@ $layoutOverride->includeFile[] = $template . '/layouts/category/category-' . $pa
 
 $results = getAncestorCategories($catId);
 if (count($results) > 0) {
-	foreach ($results as $result) {
-		$layoutOverride->includeFile[] = $template . '/layouts/category/category-' . $result->id . '.php';
-	}
+    foreach ($results as $result) {
+        $layoutOverride->includeFile[] = $template . '/layouts/category/category-' . $result->id . '.php';
+    }
 }
 
 if ($view == 'category') {
-	$layoutOverride->includeFile[] = $template . '/layouts/category/category.php';
+    $layoutOverride->includeFile[] = $template . '/layouts/category/category.php';
 }
 if ($view == 'categories') {
-	$layoutOverride->includeFile[] = $template . '/layouts/category/categories.php';
+    $layoutOverride->includeFile[] = $template . '/layouts/category/categories.php';
 }
 $layoutOverride->includeFile[] = $template . '/layouts/component/' . $currentComponent . '.php';
 $layoutOverride->includeFile[] = $template . '/layouts/index.php';
@@ -329,12 +329,12 @@ $doc->addStyleSheet($template . '/css/grids/construct-responsive.css', 'text/css
 $doc->addStyleSheet($template . '/css/custom.css', 'text/css', 'screen');
 
 if ($this->direction == 'rtl') {
-	$doc->addStyleSheet($template . '/css/rtl.css', 'text/css', 'screen');
+    $doc->addStyleSheet($template . '/css/rtl.css', 'text/css', 'screen');
 }
 // Override style sheet returned from our template helper
 $cssFile = $styleOverride->getIncludeFile();
 if ($cssFile) {
-	$doc->addStyleSheet($cssFile, 'text/css', 'screen');
+    $doc->addStyleSheet($cssFile, 'text/css', 'screen');
 }
 // Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
 $doc->addCustomTag('<script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');

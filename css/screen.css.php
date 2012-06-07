@@ -23,23 +23,23 @@ header($ExpStr);
 /* Begin function compress */
 function compress($buffer)
 {
-	/* remove comments */
-	$buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-	/* remove tabs, spaces, new lines, etc. */
-	$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '	', '	'), '', $buffer);
-	/* remove unnecessary spaces */
-	$buffer = str_replace('{ ', '{', $buffer);
-	$buffer = str_replace(' }', '}', $buffer);
-	$buffer = str_replace('; ', ';', $buffer);
-	$buffer = str_replace(', ', ',', $buffer);
-	$buffer = str_replace(' {', '{', $buffer);
-	$buffer = str_replace('} ', '}', $buffer);
-	$buffer = str_replace(': ', ':', $buffer);
-	$buffer = str_replace(' ,', ',', $buffer);
-	$buffer = str_replace(' ;', ';', $buffer);
-	$buffer = str_replace(';}', '}', $buffer);
+    /* remove comments */
+    $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
+    /* remove tabs, spaces, new lines, etc. */
+    $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '	', '	'), '', $buffer);
+    /* remove unnecessary spaces */
+    $buffer = str_replace('{ ', '{', $buffer);
+    $buffer = str_replace(' }', '}', $buffer);
+    $buffer = str_replace('; ', ';', $buffer);
+    $buffer = str_replace(', ', ',', $buffer);
+    $buffer = str_replace(' {', '{', $buffer);
+    $buffer = str_replace('} ', '}', $buffer);
+    $buffer = str_replace(': ', ':', $buffer);
+    $buffer = str_replace(' ,', ',', $buffer);
+    $buffer = str_replace(' ;', ';', $buffer);
+    $buffer = str_replace(';}', '}', $buffer);
 
-	return $buffer;
+    return $buffer;
 }
 
 require('screen.css');
@@ -51,34 +51,34 @@ require('custom.css');
 /*
 // http://www.jonasjohn.de/snippets/php/random-color.htm
 function random_color() {
-	mt_srand((double)microtime()*1000000);
-	$c = '';
-	while(strlen($c)<6){
-		$c .= sprintf("%02X", mt_rand(0, 255));
-	}
-	return $c;
+    mt_srand((double)microtime()*1000000);
+    $c = '';
+    while(strlen($c)<6){
+        $c .= sprintf("%02X", mt_rand(0, 255));
+    }
+    return $c;
 }
 
 echo 'body {
-	font-size:' . rand (50, 95) . '%;
-	max-width:'. rand (50, 95) . 'em;
-	margin:0 auto;
-	background-color:#' . random_color() . ';}
-	#header {
-	background-color: #' . random_color() . ';
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#' . random_color() . '), to(#' . random_color() . '));
-	background-image: -webkit-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:	-moz-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:	 -ms-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:	  -o-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:		 linear-gradient(to bottom, #' . random_color() . ', #' . random_color() . ');}
-	#footer {
-	background-color: #' . random_color() . ';
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#' . random_color() . '), to(#' . random_color() . '));
-	background-image: -webkit-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:	-moz-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:	 -ms-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:	  -o-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
-	background-image:		 linear-gradient(to bottom, #' . random_color() . ', #' . random_color() . ');}';
+    font-size:' . rand (50, 95) . '%;
+    max-width:'. rand (50, 95) . 'em;
+    margin:0 auto;
+    background-color:#' . random_color() . ';}
+    #header {
+    background-color: #' . random_color() . ';
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#' . random_color() . '), to(#' . random_color() . '));
+    background-image: -webkit-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:	-moz-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:	 -ms-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:	  -o-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:		 linear-gradient(to bottom, #' . random_color() . ', #' . random_color() . ');}
+    #footer {
+    background-color: #' . random_color() . ';
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#' . random_color() . '), to(#' . random_color() . '));
+    background-image: -webkit-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:	-moz-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:	 -ms-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:	  -o-linear-gradient(top, #' . random_color() . ', #' . random_color() . ');
+    background-image:		 linear-gradient(to bottom, #' . random_color() . ', #' . random_color() . ');}';
 */
 ?>
