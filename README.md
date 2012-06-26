@@ -1,8 +1,3 @@
-# Construct5 Core #
-Test bed... cutting edge technology... highly optimized... playground... internal use only ;)
-
-The idea is something that we can use, something highly optimized (i.e. no parameters), and who knows what.
-
 # Parameters #
 Pretty much all parameters have been removed. You'll need to add stuff manually in the layout override to add head elements and such.
 
