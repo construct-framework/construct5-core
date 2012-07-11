@@ -30,9 +30,19 @@ $user = JFactory::getUser();
 $view = JRequest::getCmd('view');
 
 // Define absolute paths to files
-$mdetectFile = $templateDir . '/elements/mdetect.php';
-$mTemplate = $templateDir . '/mobile.php';
+$mdetectFile        = $templateDir . '/elements/mdetect.php';
+$mTemplate          = $templateDir . '/mobile.php';
 $alternatemTemplate = $templateDir . '/layouts/mobile.php';
+
+// Get the template's XML for versioning
+$xmlfile = $templateDir . '/templateDetails.xml';
+$data    = JApplicationHelper::parseXMLInstallFile($xmlfile);
+$version = $data['version'];
+
+// Define fallback version number for custom style sheet
+if ($customStyleSheetVersion == '') {
+	$customStyleSheetVersion = $version;
+}
 
 // Change generator tag
 $this->setGenerator('Construct Framework | http;//construct-framework.com');
@@ -324,17 +334,17 @@ $doc->addFavicon($template . '/apple-touch-icon.png', 'image/png', 'apple-touch-
 // $doc->addStyleSheet($template.'/css/screen.css.php','text/css','screen');
 
 // Style sheets
-$doc->addStyleSheet($template . '/css/screen.css', 'text/css', 'screen');
-$doc->addStyleSheet($template . '/css/grids/bootsruct-responsive.css', 'text/css', 'screen');
-$doc->addStyleSheet($template . '/css/custom.css', 'text/css', 'screen');
+$doc->addStyleSheet($template . '/css/screen.css?' . $version, 'text/css', 'screen');
+$doc->addStyleSheet($template . '/css/grids/bootsruct-responsive.css?' . $version, 'text/css', 'screen');
+$doc->addStyleSheet($template . '/css/custom.css?' . $version, 'text/css', 'screen');
 
 if ($this->direction == 'rtl') {
-    $doc->addStyleSheet($template . '/css/rtl.css', 'text/css', 'screen');
+    $doc->addStyleSheet($template . '/css/rtl.css?' . $version, 'text/css', 'screen');
 }
 // Override style sheet returned from our template helper
 $cssFile = $styleOverride->getIncludeFile();
 if ($cssFile) {
-    $doc->addStyleSheet($cssFile, 'text/css', 'screen');
+    $doc->addStyleSheet($cssFile . '?' . $version, 'text/css', 'screen');
 }
 // Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
 $doc->addCustomTag('<script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
