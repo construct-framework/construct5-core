@@ -347,9 +347,9 @@ if ($cssFile) {
     $doc->addStyleSheet($cssFile . '?' . $version, 'text/css', 'screen');
 }
 // Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
-$doc->addCustomTag('<script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
+$doc->addScriptDeclaration('docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');');
 // Smooth in-page link (i.e. back to top) scrolling
-$doc->addCustomTag('<script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
+$doc->addScriptDeclaration('window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window)});');
 
 // Internet Explorer Fixes
 $doc->addCustomTag('<!--[if lt IE 9]>');
