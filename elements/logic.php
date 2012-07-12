@@ -39,11 +39,6 @@ $xmlfile = $templateDir . '/templateDetails.xml';
 $data    = JApplicationHelper::parseXMLInstallFile($xmlfile);
 $version = $data['version'];
 
-// Define fallback version number for custom style sheet
-if ($customStyleSheetVersion == '') {
-	$customStyleSheetVersion = $version;
-}
-
 // Change generator tag
 $this->setGenerator('Construct Framework | http;//construct-framework.com');
 
