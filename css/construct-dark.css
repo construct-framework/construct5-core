@@ -258,6 +258,6 @@ input.button:active {
 	width : auto;
 }
 
-ul.menu ul li a {
+#nav ul.menu ul li a {
 	white-space : nowrap;
 }
