@@ -330,7 +330,7 @@ $doc->addFavicon($template . '/apple-touch-icon.png', 'image/png', 'apple-touch-
 
 // Style sheets
 $doc->addStyleSheet($template . '/css/screen.css?' . $version, 'text/css', 'screen');
-$doc->addStyleSheet($template . '/css/grids/bootsruct-responsive.css?' . $version, 'text/css', 'screen');
+$doc->addStyleSheet($template . '/css/grids/construct-responsive.css?' . $version, 'text/css', 'screen');
 $doc->addStyleSheet($template . '/css/custom.css?' . $version, 'text/css', 'screen');
 
 if ($this->direction == 'rtl') {
