@@ -60,7 +60,7 @@ $this->_script['text/javascript'] = preg_replace('%window\.addEvent\(\'load\',\s
 $this->_script['text/javascript'] = preg_replace('%window\.addEvent\(\'domready\',\s*function\(\)\s*{\s*SqueezeBox.initialize\({}\);\s*SqueezeBox\.assign\(\$\$\(\'a.modal\'\)\,\s*{\s*parse:\s*\'rel\'\s*}\);\s*}\);\s*%', '',$this->_script['text/javascript']);
 */
 
-#----------------------------- Moldule Counts -----------------------------#
+#----------------------------- Module Counts -----------------------------#
 // from http://groups.google.com/group/joomla-dev-general/browse_thread/thread/b54f3f131dd173d
 
 $headerAboveCount1 = (int)($this->countModules('header-above-1') > 0);
